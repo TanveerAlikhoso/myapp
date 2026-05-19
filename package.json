@@ -20,5 +20,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "^16.2.6",
+    "@next/swc-linux-x64-musl": "^16.2.6"
   }
 }
