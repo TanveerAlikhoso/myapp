@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#522300",
+                    "on-background": "#e5e2e1",
+                    "primary": "#ffb68b",
+                    "on-secondary-fixed": "#291800",
+                    "primary-container": "#ff7a00",
+                    "inverse-on-surface": "#313030",
+                    "surface-tint": "#ffb68b",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-container": "#5c2800",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-fixed": "#ffdbc8",
+                    "secondary-fixed": "#ffddb4",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed-variant": "#920703",
+                    "on-primary-fixed": "#321200",
+                    "inverse-primary": "#994700",
+                    "secondary-container": "#dc9100",
+                    "primary-fixed-dim": "#ffb68b",
+                    "on-tertiary-container": "#750000",
+                    "tertiary-container": "#ff7663",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdad4",
+                    "surface-container-highest": "#353534",
+                    "surface-bright": "#3a3939",
+                    "on-secondary": "#452b00",
+                    "tertiary-fixed-dim": "#ffb4a8",
+                    "secondary": "#ffb955",
+                    "tertiary": "#ffb4a8",
+                    "background": "#131313",
+                    "outline": "#a78b7c",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#4f3100",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-low": "#1c1b1b",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "on-tertiary": "#690000",
+                    "outline-variant": "#584235",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#753400",
+                    "surface-variant": "#353534",
+                    "on-tertiary-fixed": "#410000",
+                    "secondary-fixed-dim": "#ffb955",
+                    "on-surface-variant": "#e0c0af"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter-md": "24px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px",
+                    "gutter-sm": "16px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "body-lg": ["Montserrat"],
+                    "label-sm": ["Montserrat"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(14, 14, 14, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+        }
+        .map-pulse {
+            position: relative;
+        }
+        .map-pulse::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ff7a00;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ff7a00;
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); opacity: 0.8; }
+            80%, 100% { opacity: 0; transform: scale(2); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+
+<main class="flex-grow pt-32 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-md">
+<!-- Left Column: Status & Map -->
+<div class="lg:col-span-8 flex flex-col gap-gutter-md">
+<!-- Status Timeline Card -->
+<section class="glass-panel rounded-xl p-8">
+<div class="flex justify-between items-end mb-8">
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Order #LB-88291</p>
+<h2 class="font-headline-lg text-headline-lg font-sora text-on-surface">Arriving in 12 mins</h2>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Estimated Arrival</p>
+<p class="font-headline-md text-headline-md text-secondary">8:42 PM</p>
+</div>
+</div>
+<div class="relative py-4">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-[70%] h-1 bg-primary-container -translate-y-1/2 glow-orange"></div>
+<div class="relative flex justify-between">
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="restaurant">restaurant</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Kitchen</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="flatware">flatware</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Plating</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center z-10 animate-pulse">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="delivery_dining">delivery_dining</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary">En Route</span>
+</div>
+<div class="flex flex-col items-center gap-3 opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="home">home</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Delivered</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stylized Dark Map -->
+<section class="glass-panel rounded-xl overflow-hidden h-[500px] relative">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="A dark, stylized top-down satellite map of a modern urban city grid at night. The streets are defined by deep charcoal tones and subtle neon reflections. A pulsing golden line traces a path through the city blocks, terminating at a glowing orange destination pin. The overall atmosphere is high-tech, cinematic, and premium, with a focus on sophisticated navigation and luxury delivery aesthetics." data-location="Metropolis Center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiQ9mNszLbXMROM36ZAI4EbBUUoz3140UUVQdH8VG2cFnNFj7FsrEjTn4nHrhVCIh0bjyYQZd9tKlkqGCUcYNIo7HzKb2N3b7L4cseszDKch-Z0ME5lrJts3YDMwXS2ebd4kplrIa_q2kwUAEaWnEFnn7JBZg9iwLic97ogFKP43gc1ruXp516OC58W0A_6mrzhH805AxK5DYlWjPAwzgTqjB2ds1H3HTYAp2SaYnzH-f8-kJyfKZtWGSzjqUpRB9_CJpzpckAHd67"/>
+<!-- Overlay Map Elements -->
+<div class="absolute inset-0 pointer-events-none">
+<svg class="w-full h-full" fill="none" viewbox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<path class="opacity-80" d="M100 400C150 380 250 420 350 350C450 280 500 150 650 100" stroke="#ff7a00" stroke-dasharray="8 8" stroke-width="4"></path>
+</svg>
+<div class="absolute top-[100px] right-[150px] map-pulse"></div>
+<div class="absolute bottom-[100px] left-[100px]">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<!-- Map Legend Overlay -->
+<div class="absolute bottom-6 left-6 flex gap-4">
+<div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container glow-orange"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Courier Position</span>
+</div>
+<div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Your Location</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Courier & Chat -->
+<div class="lg:col-span-4 flex flex-col gap-gutter-md">
+<!-- Courier Information -->
+<section class="glass-panel rounded-xl p-6">
+<h3 class="font-headline-md text-headline-md font-sora text-on-surface mb-6">Your Courier</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A professional and friendly portrait of a delivery courier wearing a sleek dark uniform with a subtle Lumina Bites logo. The lighting is dramatic and premium, highlighting sharp facial features against a blurred urban background at twilight. The image conveys high-end service and reliability within a luxury fast-food context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUglT_MIbGTCuCftS28yiKYR-KVYTbeduCD4Tuz8SS-bjWJ3WDHVUXNYrJge-DGKL8dFczifKYmMA2OjV4yxgBW_N2SQwEuh4Yj3ODsyTKZ4e8nj0tpmTq2R3HlCiIk5rGzvnoa7bTr2bKcf-h1kwr7zdShn0uQ3yDLmZ-mCfVhy56C-3wXw0MTgiFAxzqcht8vwZ2rObycN-HpLXz5NJGC5fPWB35UGr1UJS1szGxf1A0Lwv7igz96XWgOW3VGJu7lozEZUfJiSzJ"/>
+<div class="absolute bottom-0 right-0 bg-secondary text-on-secondary rounded-full p-1 border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">Marcus Vance</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="electric_moped">electric_moped</span>
+                                Electric GTS-X Courier
+                            </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg py-3 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                            Call
+                        </button>
+<button class="bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-lg text-label-lg py-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg glow-orange">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                            Message
+                        </button>
+</div>
+</section>
+<!-- Live Concierge Chat Widget -->
+<section class="glass-panel rounded-xl flex flex-col h-[480px]">
+<div class="p-4 border-b border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Live Concierge</h4>
+<p class="text-[10px] text-tertiary uppercase tracking-widest font-bold">Priority Gold Member</p>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+</div>
+<div class="flex-grow p-4 overflow-y-auto flex flex-col gap-4">
+<div class="flex gap-2 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl rounded-tl-none">
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back, Mr. Sterling. Chef is just putting the finishing touches on your Truffle Gold Burger. Marcus is waiting just outside.</p>
+</div>
+</div>
+<div class="flex gap-2 max-w-[85%] self-end">
+<div class="bg-primary-container/20 p-3 rounded-xl rounded-tr-none border border-primary-container/30">
+<p class="font-body-md text-body-md text-on-surface">Thank you. Please ensure the sparkling water is extra chilled.</p>
+</div>
+</div>
+<div class="flex gap-2 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl rounded-tl-none">
+<p class="font-body-md text-body-md text-on-surface-variant">Of course. I've updated the instruction for Marcus. Anything else for your digital ritual tonight?</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest/50">
+<div class="relative">
+<input class="w-full bg-surface-container-high border border-outline-variant focus:border-secondary focus:ring-0 rounded-xl px-4 py-3 text-on-surface placeholder:text-on-surface-variant/40" placeholder="Type a message..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Order Summary Section -->
+<section class="mt-gutter-md">
+<h3 class="font-headline-md text-headline-md font-sora text-on-surface mb-6">Order Detail</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Bento Item 1 -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="A hyper-realistic close-up of a gourmet truffle burger. The bun is perfectly toasted with a golden sheen, and the patty is succulent with visible melted aged cheese. Flakes of edible gold leaf catch the light against a moody, dark background. The lighting is cinematic and high-contrast, emphasizing the luxury of the fast food experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCguaFfXcjr0gGfa0O2zqcy3rITeg4CwKoKQjItzZb_jXg6zkj8UfQ4flLIgBBN45emltbR5q-Bc0erimP-iloCVTuZFfeBOnovNVAWrdaGtoxJyr4Rzzl7KEKv3cYZnWMrWPU4InD6EpeYeKu0mNG50BGC7TXbPxWAL-8LGlUxaYL6m21huD5KoogtbW4WYNRtC0geiWP9avZsQogvl8DX-OPUWybHEmIDQmGbInZ6Dg5sfs89i-7mpRq2nPQvQsI8d5l9rir8Gzrn"/>
+</div>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface">Truffle Gold Burger</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">x1 • Medium Rare</p>
+<p class="font-headline-md text-headline-md text-primary mt-1">$42.00</p>
+</div>
+</div>
+<!-- Bento Item 2 -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Premium hand-cut fries served in a designer dark ceramic bowl. The fries are perfectly golden and crispy, dusted with fine herbs and sea salt. A small silver ramekin of saffron-infused aioli sits nearby. The scene is lit by warm, ambient glow, creating a high-end culinary aesthetic consistent with a luxury brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn4qFZzjmyvBFFqMS22CyD38EC9XgfKMohCxJsmgz6Ks2zhHV4_5GtvmTT0k3q5BLQadZnzp0kiO1WWr4LjoNblqSDLJ9ibYhOYrdXnoKiVui59OAUwhQP0BLmaJS01hYeNDrEP3mMCQSSAu5lcWBhe66zPS1IlH8RFiCb_cQ8GQG2eOlHSmUixTUppaURsOBkh98bxKYqft7A1peuLhxBk6SQPiDuQUHuBJFTC-UHUCYc_1i8yLq56OP-_wPQZsMINzrpvez155Dh"/>
+</div>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface">Saffron Sea-Salt Fries</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">x1 • Regular</p>
+<p class="font-headline-md text-headline-md text-primary mt-1">$18.00</p>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="A minimalist dessert featuring a dark chocolate sphere drizzled with a warm caramel sauce. The dessert sits on a textured black plate, with a single vanilla bean garnish. High-key lighting creates sharp highlights and deep shadows, emphasizing the sophisticated textures and premium nature of the patisserie." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFVeSWi2qSeTJpUUluiSuEqGfm6ggIQTHtME2uOG9DqHYAgXpmtsu59YE6RvLlsGOkbUIj1q_5dD4sSi6xSPGzjTz6rbFCQbXd2wYjc-6eNe8gDFmCXJoN2j3N7qNn9Nm1fr3RQyhK7__PaRE5G-eEgyDYyecuWha80Fz0QJmeCS5iaIXWhpo4qKD-C5ah_YnJPXpjzH8VPQHOqzme8LwyXBh67vKElkLHAtqpI5Ilaz62qltTGwbKtuIWyXOagDIjW3sA1xn7rtQb"/>
+</div>
+<div>
+<h5 class="font-label-lg text-label-lg text-on-surface">Velvet Cacao Sphere</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">x1 • Signature</p>
+<p class="font-headline-md text-headline-md text-primary mt-1">$24.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md px-margin-desktop py-16 max-w-container-max mx-auto">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Lumina Bites</h2>
+<p class="font-body-md text-body-md font-montserrat text-on-surface-variant max-w-md">© 2024 Lumina Bites. The Art of Fast Luxury. Redefining convenience through the lens of premium digital ritual.</p>
+</div>
+<div class="flex flex-wrap gap-8 md:justify-end">
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Our Story</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">The Gallery</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Sustainability</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Concierge</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

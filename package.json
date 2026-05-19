@@ -1,0 +1,24 @@
+{
+  "name": "lumina-foods-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lumina Foods Monorepo for premium fast-food web and mobile applications",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:mobile": "npm run start --workspace=apps/mobile",
+    "dev": "concurrently -n \"web,mobile\" -c \"cyan,magenta\" \"npm run dev:web\" \"npm run dev:mobile\"",
+    "build:web": "npm run build --workspace=apps/web",
+    "build:ui": "npm run build --workspace=packages/ui",
+    "build:core": "npm run build --workspace=packages/core"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "^5.3.3"
+  }
+}

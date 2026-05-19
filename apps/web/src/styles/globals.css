@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Luxury UI Glow & Glass Styles */
+.text-glow {
+  text-shadow: 0 0 30px rgba(255, 182, 139, 0.35);
+}
+
+.food-image-glow {
+  filter: drop-shadow(0 20px 40px rgba(255, 182, 139, 0.3));
+}
+
+.glass-nav {
+  background: rgba(19, 19, 19, 0.7);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Hide scrollbars but keep swipe actions active */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

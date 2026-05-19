@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#522300",
+                        "on-background": "#e5e2e1",
+                        "primary": "#ffb68b",
+                        "on-secondary-fixed": "#291800",
+                        "primary-container": "#ff7a00",
+                        "inverse-on-surface": "#313030",
+                        "surface-tint": "#ffb68b",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#5c2800",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#ffdbc8",
+                        "secondary-fixed": "#ffddb4",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#920703",
+                        "on-primary-fixed": "#321200",
+                        "inverse-primary": "#994700",
+                        "secondary-container": "#dc9100",
+                        "primary-fixed-dim": "#ffb68b",
+                        "on-tertiary-container": "#750000",
+                        "tertiary-container": "#ff7663",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdad4",
+                        "surface-container-highest": "#353534",
+                        "surface-bright": "#3a3939",
+                        "on-secondary": "#452b00",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "secondary": "#ffb955",
+                        "tertiary": "#ffb4a8",
+                        "background": "#131313",
+                        "outline": "#a78b7c",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#4f3100",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "on-tertiary": "#690000",
+                        "outline-variant": "#584235",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#753400",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#410000",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-surface-variant": "#e0c0af"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter-md": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "gutter-sm": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Sora"],
+                        "body-md": ["Montserrat"],
+                        "sora": ["Sora"],
+                        "montserrat": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(14, 14, 14, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gloss-gradient {
+            background: linear-gradient(135deg, #ff7a00 0%, #ffb955 100%);
+            box-shadow: 0 4px 20px rgba(255, 122, 0, 0.3);
+        }
+        .product-card-img {
+            transform: translateY(-24px);
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+        }
+        .cinematic-overlay {
+            background: linear-gradient(to top, #0e0e0e 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+
+<main class="pt-24">
+<!-- Hero Section: The Ritual of Events -->
+<section class="relative h-[819px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A dark cinematic scene of a luxury catering event at night. Dim ambient lighting with warm golden highlights reflects off crystal glassware and polished marble surfaces. A blurred background of a sophisticated social gathering in a modern high-end architectural space. Deep blacks and vibrant orange glows create a moody, energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOCDrM2F8VrWFW8jrQEFqjDIT2Zq9bCzvqOJG5AQf2Z59Nf9lJ-knCIFdMYjtE3tQkOSiGaCv9zfNANt2b3bPhPgBQ1X6EVzv7XoZUG618jdqNfkrvfEBlklnl40uyc7jeYUexYoH7pHPjOwVDMwHX-j42tN2mYLoRonEdOBTkN562P04jb2cMwXCsuIOF2Lu18ruHwJ1UXXK4pTars-RxRE6es5c9XSxiJIpc1cdIYlEBamoMuk9bl-U1dfJDjGTOQShMFh0SGkRW"/>
+<div class="absolute inset-0 cinematic-overlay"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-4 leading-none">The Ritual of Events</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                        Elevate your private gatherings with Lumina Bites. We transform fast luxury into a curated culinary ceremony for the most discerning hosts.
+                    </p>
+<div class="flex gap-4">
+<button class="gloss-gradient px-8 py-4 rounded-xl text-on-primary font-label-lg text-label-lg uppercase tracking-widest active:scale-95 transition-all">
+                            Book Experience
+                        </button>
+<button class="bg-surface-container-high border border-white/10 px-8 py-4 rounded-xl text-on-surface font-label-lg text-label-lg uppercase tracking-widest hover:bg-surface-bright transition-all">
+                            View Lookbook
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Selection of Luxury Platters -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<span class="text-primary-container font-label-lg text-label-lg uppercase tracking-[0.2em] mb-2 block">Curated Collections</span>
+<h2 class="font-headline-lg text-headline-lg">Signature Platters</h2>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-md">
+                    Each platter is a masterpiece of texture and taste, designed for effortless elegance and communal enjoyment.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12">
+<!-- Platter 1: Wagyu Sliders -->
+<div class="glass-panel rounded-3xl p-8 flex flex-col relative mt-12">
+<div class="product-card-img absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48">
+<img class="w-full h-full object-contain rounded-full border-4 border-primary/20 bg-surface-dim" data-alt="Macro photography of three gourmet Wagyu beef sliders on a black slate platter. The buns are golden brioche, topped with black sesame seeds. Rich melted cheese drips down the sides, catching the warm orange light. The setting is dark and luxurious, with a shallow depth of field emphasizing the texture of the meat and the glossy finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdkqH3EmCzJAZa7KqvHQ18kY9Ah5kY3KxsJnWIC1ktF_tYFaK2hHmJpMJwzNCdS6p4aJB7GjjbHdOW-pmEUNdJkeAIVv3I4L3htUaDkbOOYl2yDf49gn_tXT32AMZmXJb9K3TzUGFWKs6fb43ouze812bRYEoRAKXMSF-ttMZ85_xS07Zj3FqbB4ZOlEETaZF3XYZ-yRou7ZsQgvl99I4r16Dhdke3nE-vs-e8E8VDLxxWzW2k9hEwwhcAgulhcW7OxqpLEk8VK_N1"/>
+</div>
+<div class="mt-24 text-center">
+<div class="flex justify-center gap-2 mb-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-label-sm text-label-sm text-primary uppercase">Signature</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Wagyu Gold Sliders</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">A5 Wagyu, truffle aioli, 24k gold leaf accent on artisanal brioche.</p>
+<span class="text-primary-container font-headline-md text-headline-md">$185 <span class="text-on-surface-variant text-body-md">/ 12 pc</span></span>
+</div>
+</div>
+<!-- Platter 2: Truffle Fries -->
+<div class="glass-panel rounded-3xl p-8 flex flex-col relative mt-12">
+<div class="product-card-img absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48">
+<img class="w-full h-full object-contain rounded-full border-4 border-primary/20 bg-surface-dim" data-alt="Hyper-realistic close-up of luxury truffle fries in a dark charcoal cone. Shavings of fresh black truffle and aged parmesan cheese are visible across the crispy, hand-cut fries. The lighting is cinematic, casting long shadows and highlighting the oily, golden sheen. The background is a deep black with subtle amber reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC35hqVBxmYffOydtnd2vZPFMFZctco6QvJzjZKayetBnS9N-PTeuS4q6ZmX-LYp4rNCHvRpNw96TdiMBIPg6aRdJxwUHsdtGYnChZsD7gYQuAvR5cfGNEx34RY2rMGPsmENR4mON6dLXjN1o8RBLhjc2EvqU4ybc3UT6dkLDH_4oMpV2V_fJlK2gBf5Sby9qtStC0RPzoEyIGwJ8YzLPWkNUiKmTS81qbFEq7IWdSX8r6o0-TbMHWkVE4grp7z0bV4cw749hTrojGP"/>
+</div>
+<div class="mt-24 text-center">
+<div class="flex justify-center gap-2 mb-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-label-sm text-label-sm text-on-surface-variant uppercase">Vegetarian</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Midnight Truffle Fries</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Triple-cooked russets, Perigord truffle oil, aged Parmigiano-Reggiano.</p>
+<span class="text-primary-container font-headline-md text-headline-md">$120 <span class="text-on-surface-variant text-body-md">/ Large Tray</span></span>
+</div>
+</div>
+<!-- Platter 3: Artisan Pizza -->
+<div class="glass-panel rounded-3xl p-8 flex flex-col relative mt-12">
+<div class="product-card-img absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48">
+<img class="w-full h-full object-contain rounded-full border-4 border-primary/20 bg-surface-dim" data-alt="A luxurious artisanal pizza with a charred sourdough crust. Topped with buffalo mozzarella, prosciutto di Parma, and fresh basil leaves. The pizza sits on a dark, reflective granite surface. Cinematic lighting creates a glowing halo around the edges of the pizza, emphasizing the vibrant red of the sauce and the fresh green of the herbs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADp1bf8IDqpM-H8oxkzbDxyCAeKeQirl-Mk5S1CC2As1ZewzN8pGEJIJ30KnvWClSgPjXBHOxPUIAAjwbBG905zvtjowcZMllX-Shf0nDK29BKPIYtIaxbbv4S_akoshaHJhmAGy6sY6nAiljt_tZ55pT0tAPZfwDhIIEdbe2PUaTxseAsK_IYeIpCdEeLnCKFztNpdb5D7AIR1xJVJbGQ3UXQN_By_Lq-EsuzHRkJt3zmMv8FtTNOf6TuGV7MIuBbI5nQ7OSncuX9"/>
+</div>
+<div class="mt-24 text-center">
+<div class="flex justify-center gap-2 mb-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-label-sm text-label-sm text-tertiary uppercase">Spicy</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Lumina Sourdough</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">72-hour fermented dough, spicy nduja, honey drizzle, burrata core.</p>
+<span class="text-primary-container font-headline-md text-headline-md">$145 <span class="text-on-surface-variant text-body-md">/ Platter</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Chef's Table Experience Highlight -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<img class="rounded-3xl shadow-2xl border border-white/5 object-cover w-full aspect-square" data-alt="A professional chef in a sleek black uniform meticulously plating a gourmet dish in a high-end, modern kitchen. The kitchen is illuminated with cool blue task lighting and warm amber accent lights. Steam rises gently from a copper pan. The image has a sharp, cinematic quality with focus on the chef's hands and the vibrant colors of the food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx_Zm8Qli70OAnCLmRHCawhsXClO0MEaArDnal3IX-2RxKJQ9laVC_vcexq1pzOi-Y126FKaiNnHIeBjHwYPmTay4eX8-YCyx-XXmYPoHz8bumBhDpoBC75tbfDKjdQtGybmJ--lJq5x88zLK_39eiNMTP22tgS0VIethSAILnnSC9Wixl4SGYYWBttHar6i-MvnRHIOyTw8sSRzGYMkcZe1imXV-dRu7dzKwumJKM6izAwSdW9RyHVzWWp_TLL7gY2PnQNMSbDve2"/>
+</div>
+<div class="order-1 md:order-2">
+<span class="text-secondary font-label-lg text-label-lg uppercase tracking-[0.3em] mb-4 block">The Pinnacle</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">The Chef's Table Experience</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Bring our Executive Chef to your private residence for a live culinary performance. Watch the art of Lumina Bites come to life in your own kitchen, featuring exclusive off-menu creations and rare vintages.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-body-md text-body-md">7-Course Bespoke Tasting Menu</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+<span class="font-body-md text-body-md">Private Mixologist &amp; Sommelier</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+<span class="font-body-md text-body-md">Full Table Scape &amp; Floral Curation</span>
+</li>
+</ul>
+<button class="border-b-2 border-primary text-primary font-label-lg text-label-lg py-2 hover:text-primary-container hover:border-primary-container transition-all">
+                        Inquire About Chef's Table
+                    </button>
+</div>
+</div>
+</section>
+<!-- Inquiry Form -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="glass-panel rounded-[40px] p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-display-lg text-display-lg mb-6">Private Event Concierge</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8">
+                        Provide us with the details of your upcoming event. Our dedicated catering concierge will contact you within 4 hours to curate your bespoke menu.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase">Direct Line</p>
+<p class="font-headline-md text-headline-md">+1 (888) LUMINA-C</p>
+</div>
+</div>
+</div>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant px-2 uppercase">Full Name</label>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Alexander Thorne" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant px-2 uppercase">Email Address</label>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="alex@concierge.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant px-2 uppercase">Event Date</label>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant px-2 uppercase">Guest Count</label>
+<select class="w-full bg-surface-container-low border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors">
+<option>10 - 25 guests</option>
+<option>26 - 50 guests</option>
+<option>51 - 100 guests</option>
+<option>100+ guests</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant px-2 uppercase">Event Vision</label>
+<textarea class="w-full bg-surface-container-low border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Tell us about the mood and menu preferences..." rows="4"></textarea>
+</div>
+<button class="w-full gloss-gradient py-5 rounded-xl text-on-primary font-headline-md text-headline-md font-bold active:scale-95 transition-all" type="submit">
+                        Send Inquiry
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="flex flex-col gap-6">
+<div class="font-headline-md text-headline-md text-primary font-sora">Lumina Bites</div>
+<p class="font-body-md text-body-md font-montserrat text-on-surface-variant max-w-xs">
+                    Redefining the fast luxury experience through cinematic taste and digital ritual.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="language">language</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-label-lg text-label-lg uppercase">Experience</h4>
+<nav class="flex flex-col gap-2">
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Our Story</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">The Gallery</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Sustainability</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-label-lg text-label-lg uppercase">Contact</h4>
+<nav class="flex flex-col gap-2">
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Concierge</a>
+<a class="font-body-md text-body-md font-montserrat text-on-surface-variant hover:text-primary transition-all underline-offset-4 hover:underline" href="#">Legal</a>
+</nav>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-8 border-t border-white/5 text-center">
+<p class="font-body-md text-body-md font-montserrat text-on-surface-variant opacity-60">© 2024 Lumina Bites. The Art of Fast Luxury.</p>
+</div>
+</footer>
+</body></html>

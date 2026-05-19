@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#ffb4a8",
+                    "surface-tint": "#ffb68b",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdad4",
+                    "primary-container": "#ff7a00",
+                    "on-tertiary-fixed": "#410000",
+                    "inverse-on-surface": "#313030",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "outline": "#a78b7c",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#522300",
+                    "on-secondary-container": "#4f3100",
+                    "on-surface-variant": "#e0c0af",
+                    "on-background": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#ff7663",
+                    "tertiary": "#ffb4a8",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#994700",
+                    "on-tertiary-fixed-variant": "#920703",
+                    "primary-fixed-dim": "#ffb68b",
+                    "primary-fixed": "#ffdbc8",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "on-primary-fixed-variant": "#753400",
+                    "background": "#131313",
+                    "on-primary-container": "#5c2800",
+                    "surface-bright": "#3a3939",
+                    "on-tertiary-container": "#750000",
+                    "surface-dim": "#131313",
+                    "surface": "#131313",
+                    "secondary-container": "#dc9100",
+                    "secondary": "#ffb955",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#ffb955",
+                    "on-secondary": "#452b00",
+                    "on-tertiary": "#690000",
+                    "outline-variant": "#584235",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-variant": "#353534",
+                    "on-primary-fixed": "#321200",
+                    "primary": "#ffb68b",
+                    "secondary-fixed": "#ffddb4",
+                    "on-secondary-fixed": "#291800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-sm": "16px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter-md": "24px",
+                    "container-max": "1280px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Montserrat"],
+                    "display-lg": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "label-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #111111; color: #e5e2e1; }
+        .glass-panel {
+            background: rgba(32, 31, 31, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glossy-card {
+            background: linear-gradient(135deg, rgba(255, 182, 139, 0.15) 0%, rgba(255, 122, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 182, 139, 0.2);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+        .primary-glow {
+            box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+        }
+        .luxury-card-bg {
+            background: linear-gradient(145deg, #1e1e1e 0%, #111111 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-x-hidden pb-40">
+<!-- Top AppBar -->
+
+<main class="mt-20 px-margin-mobile space-y-8">
+<!-- Delivery Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-widest">Delivery Address</h2>
+<button class="text-primary text-label-lg font-label-lg hover:opacity-80">Change</button>
+</div>
+<div class="glass-panel p-6 rounded-[28px] flex items-start space-x-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<p class="font-headline-md text-body-lg text-on-surface">1200 Luxury Plaza</p>
+<p class="text-on-surface-variant text-body-md">Penthouse 4, Beverly Hills, CA 90210</p>
+</div>
+</div>
+</section>
+<!-- Delivery Time -->
+<section class="space-y-4">
+<h2 class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-widest">Arrival Preference</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- ASAP Card (Active) -->
+<div class="glossy-card p-5 rounded-[28px] border-primary/50 ring-1 ring-primary/50 relative overflow-hidden group">
+<div class="absolute -top-4 -right-4 w-16 h-16 bg-primary/10 blur-2xl rounded-full"></div>
+<span class="material-symbols-outlined text-primary mb-2" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<p class="text-on-surface font-label-lg">ASAP</p>
+<p class="text-primary text-label-sm">25-35 mins</p>
+</div>
+<!-- Schedule Card -->
+<div class="glass-panel p-5 rounded-[28px] opacity-60 hover:opacity-100 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant mb-2">calendar_today</span>
+<p class="text-on-surface-variant font-label-lg">Schedule</p>
+<p class="text-on-surface-variant/60 text-label-sm">Pick a time</p>
+</div>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-widest">Payment Method</h2>
+<button class="text-primary text-label-lg font-label-lg hover:opacity-80">
+<span class="material-symbols-outlined align-middle mr-1">add_circle</span>Add New
+                </button>
+</div>
+<div class="flex overflow-x-auto pb-4 -mx-margin-mobile px-margin-mobile space-x-4 scrollbar-hide">
+<!-- Lumina Reserve Card -->
+<div class="min-w-[280px] h-[170px] luxury-card-bg rounded-[28px] p-6 relative flex flex-col justify-between border border-white/5 overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -mr-10 -mt-10"></div>
+<div class="flex justify-between items-start z-10">
+<div class="w-12 h-8 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-md opacity-80"></div>
+<p class="text-primary font-headline-md text-headline-md italic tracking-tighter">LUMINA</p>
+</div>
+<div class="z-10">
+<p class="text-on-surface tracking-[0.2em] font-label-lg mb-1">••••  ••••  ••••  8842</p>
+<div class="flex justify-between items-center">
+<p class="text-on-surface-variant text-label-sm uppercase opacity-60">Reserve Member</p>
+<p class="text-on-surface-variant text-label-sm">12/28</p>
+</div>
+</div>
+</div>
+<!-- Apple Pay -->
+<div class="min-w-[140px] h-[170px] glass-panel rounded-[28px] flex flex-col items-center justify-center space-y-2 opacity-60 border-dashed border-white/10">
+<div class="w-12 h-12 flex items-center justify-center bg-white rounded-full">
+<span class="material-symbols-outlined text-black" style="font-variation-settings: 'FILL' 1;">ios</span>
+</div>
+<p class="text-on-surface font-label-lg">Apple Pay</p>
+</div>
+<!-- Google Pay -->
+<div class="min-w-[140px] h-[170px] glass-panel rounded-[28px] flex flex-col items-center justify-center space-y-2 opacity-60 border-dashed border-white/10">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest rounded-full border border-white/5">
+<span class="material-symbols-outlined text-secondary">google</span>
+</div>
+<p class="text-on-surface font-label-lg">Google Pay</p>
+</div>
+</div>
+</section>
+<!-- Order Summary Detail -->
+<section class="space-y-4">
+<h2 class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-widest">Order Summary</h2>
+<div class="glass-panel p-6 rounded-[28px] space-y-4">
+<div class="flex items-center space-x-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0">
+<img alt="Wagyu Burger" class="w-full h-full object-cover" data-alt="A hyper-realistic, close-up shot of a Brioche Wagyu Burger on a dark, slate surface with dramatic cinematic lighting. The burger features a juicy wagyu patty, melted golden cheese, and fresh greens between a toasted brioche bun, capturing every texture and highlight. The mood is sophisticated and indulgent, with warm amber glows reflecting off the glossy surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiUnPsHwnV8AKsBlAZgvAjlKLUMxo9RD2bdYg1B3K0HHLdAZGX7N488lqa3C-sOHSt7v0_FeIADDE3yn01MfsSJYLQ5-0aJ1F7WpdTVqdUrg1h51jmv9fQEmkKd6j0zG_Ia-lJp_O9W-_yl450lBF7FSxVV9Q7RA9_e8jOQuVH0lxo-Vf8fNhYKbPJZN3aF6lRYVixHczBH2_s6Yv21_iiSszMFFQ15PV1KdolP81bBXapPxDwVFjUAR-eJlWz6pSRPdqB_zJFPQs1"/>
+</div>
+<div class="flex-grow">
+<p class="text-on-surface font-headline-md text-body-lg">Brioche Wagyu Burger</p>
+<p class="text-on-surface-variant text-label-sm">Double Patty, Black Truffle Mayo</p>
+</div>
+<p class="text-on-surface font-label-lg">$45.00</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0">
+<img alt="Mushroom Pizza" class="w-full h-full object-cover" data-alt="An overhead cinematic shot of a Truffle Mushroom Pizza with a perfectly charred, artisanal crust. The pizza is topped with earthy wild mushrooms, creamy mozzarella, and drizzles of rich truffle oil, appearing hyper-realistic against a dark charcoal backdrop. The lighting is moody and focused, emphasizing the glossy, melted textures and the premium quality of the ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQtH12FQwpxU6PfHN9K7YXRQBnF-uIna_a4B9myKzWxkAC7fqMB2sFtdmiA15vM_uKbQ-8uQw2fzkUD3vQkkknSPVUES02cOeNwWU0QVGZahjTrDfgQlUxr6hZDE0ZJ5rWwNQD33F6ivsXrsKXbtILYGy0Hh_IKhZVlw1kthamcWr3rneoAa2wKN6h93Ue5AhkdACLPtehk3p4Aux5t9pUnBZnL8dm4b5c3qfrPIzZnj9LAE5h1Sz4rPyYU1VT75m6m4WwhXgigpEc"/>
+</div>
+<div class="flex-grow">
+<p class="text-on-surface font-headline-md text-body-lg">Truffle Mushroom Pizza</p>
+<p class="text-on-surface-variant text-label-sm">12" Hand-tossed, Porcini Oil</p>
+</div>
+<p class="text-on-surface font-label-lg">$32.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Summary & Action -->
+<footer class="fixed bottom-0 left-0 w-full z-50">
+<div class="bg-surface/90 backdrop-blur-2xl border-t border-white/10 rounded-t-[40px] px-margin-mobile pt-8 pb-10 shadow-[0_-20px_50px_rgba(0,0,0,0.4)]">
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-on-surface-variant">
+<p class="text-body-md font-body-md">Subtotal</p>
+<p class="text-body-md font-body-md">$77.00</p>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<p class="text-body-md font-body-md">Delivery Fee</p>
+<p class="text-body-md font-body-md">$5.00</p>
+</div>
+<div class="flex justify-between items-end pt-2 border-t border-white/5">
+<p class="text-label-lg font-label-lg text-on-surface">Total Amount</p>
+<p class="text-headline-lg font-headline-lg text-primary drop-shadow-[0_0_10px_rgba(255,182,139,0.4)]">$82.00</p>
+</div>
+</div>
+<button class="w-full h-16 bg-gradient-to-r from-primary to-secondary text-on-primary font-label-lg uppercase tracking-[0.2em] rounded-[28px] primary-glow transition-all active:scale-95 flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span>Confirm Order</span>
+</button>
+</div>
+</footer>
+</body></html>
