@@ -104,39 +104,39 @@ export default function Locations() {
       />
 
       {/* 2. Page Hero Header */}
-      <header className="pt-36 pb-12 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center space-y-4">
-        <span className="font-body text-xs text-[#ffb68b] tracking-[0.3em] uppercase block">
+      <header className="pt-24 md:pt-36 pb-8 md:pb-12 max-w-container-max mx-auto px-5 md:px-margin-desktop relative z-10 text-center space-y-3 md:space-y-4">
+        <span className="font-body text-[10px] md:text-xs text-[#ffb68b] tracking-[0.3em] uppercase block">
           Elite Physical Footprint
         </span>
-        <h1 className="font-display text-4xl md:text-6xl font-black text-white tracking-tight leading-none uppercase">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-6xl font-black text-white tracking-tight leading-none uppercase">
           LUMINA GASTRONOMY VAULTS
         </h1>
-        <p className="font-body text-sm md:text-base text-[#e0c0af] max-w-2xl mx-auto leading-relaxed">
-          Step into our architecturally curated locations combining gold-leaf kitchen design with rapid drone dispatch networks. Enjoy our menu fresh at a table or delivered within minutes.
+        <p className="font-body text-xs md:text-base text-[#e0c0af] max-w-2xl mx-auto leading-relaxed">
+          Step into our architecturally curated locations combining gold-leaf kitchen design with rapid drone dispatch networks.
         </p>
-        <div className="w-16 h-1 bg-[#ff7a00] mx-auto rounded-full mt-2" />
+        <div className="w-12 md:w-16 h-1 bg-[#ff7a00] mx-auto rounded-full mt-2" />
       </header>
 
       {/* 3. Search and Filtering Controls */}
-      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 mb-10">
-        <div className="p-4 bg-[#1c1b1b]/60 border border-white/5 rounded-3xl backdrop-blur-md flex flex-col md:flex-row gap-4 justify-between items-center">
+      <section className="max-w-container-max mx-auto px-5 md:px-margin-desktop relative z-10 mb-6 md:mb-10">
+        <div className="p-3 md:p-4 bg-[#1c1b1b]/60 border border-white/5 rounded-2xl md:rounded-3xl backdrop-blur-md flex flex-col md:flex-row gap-3 md:gap-4 justify-between items-center">
           {/* Search Box */}
           <div className="relative w-full md:max-w-md">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" size={18} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" size={16} />
             <input 
               type="text" 
               placeholder="Search by city, state, or street..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-2xl text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#ff7a00] transition-colors"
+              className="w-full pl-11 pr-4 py-2.5 md:py-3 bg-black/40 border border-white/10 rounded-xl md:rounded-2xl text-white placeholder-white/30 text-xs md:text-sm focus:outline-none focus:border-[#ff7a00] transition-colors"
             />
           </div>
 
           {/* Filtering Toggles */}
-          <div className="flex gap-2 w-full md:w-auto overflow-x-auto scrollbar-none">
+          <div className="flex gap-2 w-full md:w-auto overflow-x-auto scrollbar-none pb-1 md:pb-0">
             <button 
               onClick={() => setFilterOccupancy('all')}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 filterOccupancy === 'all' 
                   ? 'bg-gradient-to-r from-[#ff7a00] to-[#ffb68b] text-[#522300] shadow-lg' 
                   : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
@@ -146,33 +146,33 @@ export default function Locations() {
             </button>
             <button 
               onClick={() => setFilterOccupancy('available')}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 filterOccupancy === 'available' 
                   ? 'bg-gradient-to-r from-[#ff7a00] to-[#ffb68b] text-[#522300] shadow-lg' 
                   : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
               }`}
             >
-              Available Seating
+              Available
             </button>
             <button 
               onClick={() => setFilterOccupancy('busy')}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 filterOccupancy === 'busy' 
                   ? 'bg-gradient-to-r from-[#ff7a00] to-[#ffb68b] text-[#522300] shadow-lg' 
                   : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
               }`}
             >
-              Fully Booked / Peak
+              Peak / Booked
             </button>
           </div>
         </div>
       </section>
 
       {/* 4. Double Panel Workspace */}
-      <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <main className="max-w-container-max mx-auto px-5 md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10">
         
         {/* Left Side: Vault Cards List (7 Columns) */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-7 space-y-4 md:space-y-6 order-2 lg:order-1">
           {filteredLocations.length === 0 ? (
             <div className="p-12 text-center bg-[#1c1b1b]/40 border border-white/5 rounded-3xl">
               <p className="text-[#e0c0af]/60 font-body text-base">No active vaults match your search queries.</p>
@@ -190,7 +190,7 @@ export default function Locations() {
                 <div 
                   key={loc.id}
                   onClick={() => setSelectedLoc(loc)}
-                  className={`p-6 rounded-[32px] border transition-all duration-300 cursor-pointer flex flex-col md:flex-row gap-6 relative group ${
+                  className={`p-4 md:p-6 rounded-3xl md:rounded-[32px] border transition-all duration-300 cursor-pointer flex flex-col sm:flex-row gap-4 md:gap-6 relative group ${
                     isActive 
                       ? 'border-[#ffb68b] bg-[#ffb68b]/5 shadow-[0_15px_30px_rgba(255,122,0,0.1)]' 
                       : 'border-white/5 bg-[#1c1b1b]/40 hover:border-white/10 hover:bg-[#1c1b1b]/60'
@@ -204,7 +204,7 @@ export default function Locations() {
                   )}
 
                   {/* Image wrapper */}
-                  <div className="w-full md:w-44 h-44 rounded-2xl overflow-hidden relative border border-white/10 shrink-0">
+                  <div className="w-full sm:w-36 md:w-44 h-40 sm:h-36 md:h-44 rounded-2xl overflow-hidden relative border border-white/10 shrink-0">
                     <img 
                       src={loc.image} 
                       alt={loc.name}
@@ -216,8 +216,8 @@ export default function Locations() {
                   {/* Content details */}
                   <div className="flex-grow flex flex-col justify-between space-y-4">
                     <div className="space-y-2">
-                      <h3 className="font-display text-xl font-bold text-white group-hover:text-[#ffb68b] transition-colors">{loc.name}</h3>
-                      <p className="text-xs text-[#e0c0af]/80 font-body leading-relaxed">{loc.description}</p>
+                      <h3 className="font-display text-base md:text-xl font-bold text-white group-hover:text-[#ffb68b] transition-colors">{loc.name}</h3>
+                      <p className="text-[11px] md:text-xs text-[#e0c0af]/80 font-body leading-relaxed line-clamp-2">{loc.description}</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 text-xs font-body text-white/60">
@@ -278,8 +278,8 @@ export default function Locations() {
         </div>
 
         {/* Right Side: Lumina Interactive Map Grid Mock (5 Columns) */}
-        <div className="lg:col-span-5">
-          <div className="sticky top-28 bg-[#1c1b1b]/40 border border-white/5 rounded-[40px] p-6 backdrop-blur-md space-y-6">
+        <div className="lg:col-span-5 order-1 lg:order-2">
+          <div className="lg:sticky lg:top-28 bg-[#1c1b1b]/40 border border-white/5 rounded-3xl md:rounded-[40px] p-4 md:p-6 backdrop-blur-md space-y-4 md:space-y-6">
             <div className="flex justify-between items-center">
               <div className="space-y-1">
                 <span className="text-[10px] text-[#ffb68b] font-black uppercase tracking-widest">Live Visual Interface</span>
@@ -310,20 +310,20 @@ export default function Locations() {
               {/* Locations Interactive Pins */}
               {locations.map((loc) => {
                 const isSelected = selectedLoc.id === loc.id;
-                // Pre-defined responsive coordinate mappings for our mockup map
+                // Percentage-based coordinate mappings that scale with container
                 const coordinateMapping: Record<string, { x: number; y: number }> = {
-                  'beverly-hills': { x: 75, y: 140 },
-                  'manhattan': { x: 165, y: 110 },
-                  'mayfair': { x: 310, y: 85 }
+                  'beverly-hills': { x: 19, y: 47 },
+                  'manhattan': { x: 41, y: 37 },
+                  'mayfair': { x: 78, y: 28 }
                 };
-                const pos = coordinateMapping[loc.id] || { x: 200, y: 150 };
+                const pos = coordinateMapping[loc.id] || { x: 50, y: 50 };
 
                 return (
                   <div 
                     key={loc.id}
                     onClick={() => setSelectedLoc(loc)}
                     className="absolute cursor-pointer transition-all duration-300 flex flex-col items-center group z-20"
-                    style={{ left: `${pos.x}px`, top: `${pos.y}px` }}
+                    style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
                   >
                     {/* Glowing concentric ripple rings */}
                     {isSelected && (
@@ -413,7 +413,7 @@ export default function Locations() {
       {isBookingOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md" onClick={closeBookingModal}>
           <div 
-            className="bg-[#131313] border border-white/15 rounded-[40px] p-8 max-w-lg w-full shadow-2xl relative overflow-hidden"
+            className="bg-[#131313] border border-white/15 rounded-3xl md:rounded-[40px] p-5 md:p-8 max-w-lg w-full shadow-2xl relative overflow-hidden max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Ambient gold corner decoration */}
@@ -576,16 +576,16 @@ export default function Locations() {
       )}
 
       {/* 6. Web Footer */}
-      <footer className="bg-[#0e0e0e] border-t border-white/5 py-16 px-margin-mobile md:px-margin-desktop mt-20">
-        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 font-body">
-          <div className="space-y-4">
+      <footer className="bg-[#0e0e0e] border-t border-white/5 py-10 md:py-16 px-5 md:px-margin-desktop mt-12 md:mt-20">
+        <div className="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 font-body">
+          <div className="space-y-4 col-span-2 md:col-span-1">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[#ff7a00] flex items-center justify-center">
                 <span className="font-display font-black text-sm text-[#522300]">L</span>
               </div>
-              <span className="font-display text-lg font-black text-white uppercase tracking-wider">LUMINA FOODS</span>
+              <span className="font-display text-base md:text-lg font-black text-white uppercase tracking-wider">LUMINA FOODS</span>
             </div>
-            <p className="text-xs text-[#e0c0af]/60 leading-relaxed">
+            <p className="text-[11px] md:text-xs text-[#e0c0af]/60 leading-relaxed">
               Gastronomic fast-dining vaults. Indulge in premium-sourced wagyu beef, black truffles, and charcoal oven pizzas.
             </p>
           </div>
@@ -614,7 +614,7 @@ export default function Locations() {
             </div>
           </div>
         </div>
-        <div className="max-w-container-max mx-auto border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/30">
+        <div className="max-w-container-max mx-auto border-t border-white/5 mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center text-[9px] md:text-[10px] text-white/30 gap-3">
           <p>© 2026 LUMINA FOODS CORPORATION. BESPOKE FLAVORS ALL RIGHTS RESERVED.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <a href="#" className="hover:underline">PRIVACY LAWS</a>

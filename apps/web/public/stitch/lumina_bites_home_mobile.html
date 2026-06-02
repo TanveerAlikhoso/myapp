@@ -127,7 +127,7 @@
 
 <main class="pt-20 pb-32">
 <!-- Hero Section -->
-<section class="relative hero-gradient min-h-[707px] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden">
+<section class="relative hero-gradient min-h-[100svh] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden py-10">
 <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-tertiary-container blur-[120px] rounded-full"></div>
 <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary blur-[120px] rounded-full"></div>
@@ -140,12 +140,12 @@
                     Experience the zenith of culinary craftsmanship where street food meets haute couture. Hyper-realistic flavors designed for the modern palate.
                 </p>
 <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-<button class="bg-primary-container text-on-primary-fixed font-label-lg px-10 py-5 rounded-xl shadow-[0_0_30px_rgba(255,122,0,0.4)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest">
+<a href="/checkout" target="_parent" class="bg-primary-container text-on-primary-fixed font-label-lg px-10 py-5 rounded-xl shadow-[0_0_30px_rgba(255,122,0,0.4)] hover:scale-105 active:scale-95 transition-all uppercase tracking-widest inline-block text-center">
                         Order Now
-                    </button>
-<button class="glass-card text-on-surface font-label-lg px-10 py-5 rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest border border-white/20">
+                    </a>
+<a href="/menu-dashboard" target="_parent" class="glass-card text-on-surface font-label-lg px-10 py-5 rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest border border-white/20 inline-block text-center">
                         View Menu
-                    </button>
+                    </a>
 </div>
 </div>
 <!-- Floating Hero Asset -->
@@ -251,22 +251,22 @@
 <!-- BottomNavBar -->
 <nav class="md:hidden fixed bottom-0 w-full rounded-t-[40px] z-50 bg-surface-container-low/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_40px_rgba(255,122,0,0.15)]">
 <div class="flex justify-around items-center pt-4 pb-8 px-margin-mobile">
-<div class="flex flex-col items-center gap-1 text-primary drop-shadow-[0_0_8px_rgba(255,182,139,0.5)]">
+<a href="/menu-dashboard" target="_parent" class="flex flex-col items-center gap-1 text-primary drop-shadow-[0_0_8px_rgba(255,182,139,0.5)] cursor-pointer">
 <span class="material-symbols-outlined" data-icon="restaurant_menu" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
 <span class="font-label-sm uppercase tracking-widest">Menu</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out">
+</a>
+<a href="/offers" target="_parent" class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out cursor-pointer">
 <span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
 <span class="font-label-sm uppercase tracking-widest">Offers</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out">
+</a>
+<a href="/order-tracking" target="_parent" class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out cursor-pointer">
 <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
 <span class="font-label-sm uppercase tracking-widest">Orders</span>
-</div>
-<div class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out">
+</a>
+<a href="/profile" target="_parent" class="flex flex-col items-center gap-1 text-outline hover:text-primary-fixed-dim transition-colors active:scale-90 duration-300 ease-out cursor-pointer">
 <span class="material-symbols-outlined" data-icon="person">person</span>
 <span class="font-label-sm uppercase tracking-widest">Profile</span>
-</div>
+</a>
 </div>
 </nav>
 <!-- Footer -->
