@@ -136,139 +136,26 @@
 </div>
 </section>
 <!-- Category Horizontal Scroll -->
-<div class="flex gap-4 mb-12 overflow-x-auto pb-4 no-scrollbar">
-<button class="flex items-center gap-2 px-6 py-3 rounded-full glossy-button text-on-primary-fixed font-label-lg whitespace-nowrap">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span> Menu
-            </button>
-<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[20px]">local_pizza</span> Pizza
-            </button>
-<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[20px]">dinner_dining</span> Pasta
-            </button>
-<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[20px]">lunch_dining</span> Burgers
-            </button>
-<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[20px]">liquor</span> Drinks
-            </button>
+<div id="category-container" class="flex gap-4 mb-12 overflow-x-auto pb-4 no-scrollbar">
+  <button data-category="all" class="category-btn flex items-center gap-2 px-6 py-3 rounded-full glossy-button text-on-primary-fixed font-label-lg whitespace-nowrap">
+    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span> Menu
+  </button>
+  <button data-category="pizza" class="category-btn flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
+    <span class="material-symbols-outlined text-[20px]">local_pizza</span> Pizza
+  </button>
+  <button data-category="pasta" class="category-btn flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
+    <span class="material-symbols-outlined text-[20px]">dinner_dining</span> Pasta
+  </button>
+  <button data-category="burgers" class="category-btn flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
+    <span class="material-symbols-outlined text-[20px]">lunch_dining</span> Burgers
+  </button>
+  <button data-category="drinks" class="category-btn flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">
+    <span class="material-symbols-outlined text-[20px]">liquor</span> Drinks
+  </button>
 </div>
 <!-- Menu Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-gutter-md">
-<!-- Item 1: Burger -->
-<div class="glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]">
-<div class="w-48 h-48 md:w-56 md:h-56 -mt-20 md:-ml-20 md:mt-0 flex-shrink-0 relative">
-<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all"></div>
-<img class="w-full h-full object-cover rounded-full floating-image relative z-10" data-alt="A gourmet brioche bun burger with wagyu beef, thick slices of melted sharp cheddar cheese, and crispy caramelized bacon strips. The burger is staged in a cinematic, dark-themed luxury kitchen environment with high-contrast, moody lighting and golden highlights reflecting off the glossy bun. The overall aesthetic is ultra-modern and sophisticated, using deep blacks and vibrant orange tones to emphasize the food's premium texture and richness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4xcQT_ywA4qG5-H-9DSImFtj8Kj7NlYIKom5aGJ4lL0HFkDm0KqRA9z_f7lIVJiGNh_DtyqsxA3eMcXEhATMR2e61jiEZtlzP1Zjvf9dG4AJO7XXjXVTkc5UwZd3gaCoOOYmyxpikHpublQ3eKfiv8WW9CihTHdEcfNqm-3knhguMb6CaEdN9GMUHXLpISxV4M1i5YFUJpAbgeacXWTtCm2dpyzDNmqdAQCRw8-0gdQHmM2eSUhKQpw7QspfsXC69woSHCBsYoqLi"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-primary-fixed-dim">Brioche Wagyu Burger</h3>
-<span class="font-headline-md text-primary">$17.50</span>
-</div>
-<p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Brioche bun, wagyu beef, melted sharp cheddar, crispy honey-glazed bacon.</p>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">PREMIUM</span>
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">BEEF</span>
-</div>
-<div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
-<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="px-3 font-label-lg">1</span>
-<button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Item 2: Pizza -->
-<div class="glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]">
-<div class="w-48 h-48 md:w-56 md:h-56 -mt-20 md:-ml-20 md:mt-0 flex-shrink-0 relative">
-<div class="absolute inset-0 bg-tertiary/20 blur-3xl rounded-full group-hover:bg-tertiary/30 transition-all"></div>
-<img class="w-full h-full object-cover rounded-full floating-image relative z-10" data-alt="A artisanal truffle mushroom pizza with fresh mozzarella and shaved truffles on a thin, blistered sourdough crust. The shot is captured from a high-angle, cinematic perspective with dramatic rim lighting that highlights the glossy, melted cheese and earthy mushrooms. The background is a deep charcoal surface, reflecting warm golden ambient light, creating a luxurious and craveable digital food presentation consistent with a high-end dining app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzHaV1nh7rG-2OXUfJcNjYsWrJh11NN6xxZwWJ1XhGHdIo1EFEa_481tQ0yv0QrQjlKVn-EVTFC95xCxpytyO3pszI2uQIsqWZT3krzbqN4Ekf7bFHxZ59fucx2RQjWLwu9CpoQ06vCB3jUFqLbEeYrJF8udTG2I8T4QBy_hR6OeQ1Rq7z0L8xmNYI7ieHaCEdBcpfqmeTPVo324uDlCk1Dc6wmLdnE7QOVNYh7bPQURfkX1xx4rzTM5IvvjteuGY3EFtU90dzp8z8"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-primary-fixed-dim">Truffle Mushroom</h3>
-<span class="font-headline-md text-primary">$15.50</span>
-</div>
-<p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Fresh mozzarella, wild mushrooms, and white truffle oil drizzle on artisanal dough.</p>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">VEGETARIAN</span>
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">TRUFFLE</span>
-</div>
-<div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
-<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="px-3 font-label-lg">0</span>
-<button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Item 3: Pasta -->
-<div class="glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]">
-<div class="w-48 h-48 md:w-56 md:h-56 -mt-20 md:-ml-20 md:mt-0 flex-shrink-0 relative">
-<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all"></div>
-<img class="w-full h-full object-cover rounded-full floating-image relative z-10" data-alt="A bowl of creamy authentic Carbonara pasta with al dente spaghetti, crispy guanciale, and a rich egg-based sauce, finished with freshly cracked black pepper. The lighting is warm and directional, creating deep shadows and bright highlights that showcase the silky texture of the sauce. Set against a minimalist dark matte backdrop, the image exudes a sense of culinary luxury and sophisticated modern dining aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADlzydlUf1miR1rLsVyXoU5wzXwsPdY1Ynj1UdV3zLF-w_kWjOgvhzTxBM6Ddgn2QMIQ0ipO4hHcWx7fe0pIhSvvIPGPtWRitthcuOAqpFxDPAs22HyluB9ylqbztDN8D8XxPtC7R93KqImlf-3pq0cKK0Q3X69hvOMpxGW5uWVkG2W5n1H4yjWrGB8HUMQ35qdFKmbyMJllYOpcr6VxiiKvc-3Kp9_Z2f_XfY6QpxyxDWNwD1agFs7EqzQPKmThWQ3o5Q-rq4ZhBb"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-primary-fixed-dim">Classic Carbonara</h3>
-<span class="font-headline-md text-primary">$13.50</span>
-</div>
-<p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Authentic Roman recipe with guanciale, pecorino romano, and farm-fresh eggs.</p>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">CHEF'S CHOICE</span>
-</div>
-<div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
-<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="px-3 font-label-lg">1</span>
-<button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Item 4: Drink -->
-<div class="glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]">
-<div class="w-48 h-48 md:w-56 md:h-56 -mt-20 md:-ml-20 md:mt-0 flex-shrink-0 relative">
-<div class="absolute inset-0 bg-secondary/20 blur-3xl rounded-full group-hover:bg-secondary/30 transition-all"></div>
-<img class="w-full h-full object-cover rounded-full floating-image relative z-10" data-alt="A luxury artisan cocktail in a chilled crystal glass, garnished with a vibrant orange twist and fresh mint, sitting on a dark polished wood bar surface. Soft glowing backlighting creates a beautiful bokeh effect with orange and gold tones reflecting through the ice and glass. The visual style is sleek and cinematic, emphasizing the cocktail as a premium digital ritual within a high-end restaurant menu interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW-Ui6YjVsi2oviNoDJ_Ow7MzIg_3F0FuWygKybXnX00Udld73jJOPvCVQOdxHWfroFYszr6Eq1UIzlBQf16pBGLgEbml_sauDXROAi4CpgsSDB04DvyEsWf36R5Bnatg0Zd0SdciaS_m4xtYYcZe3sQStLwfvjVEfH2r33MKmZ7qSLAu814YMLtZGrGaqNdAgfSVxdmSbsSyu79SNs56K2uPSPNDoadElbJ8UOBmndn7N1dykxzboBvv22SwNOagbBvv-SYC0LQuo"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-primary-fixed-dim">Signature Lumina</h3>
-<span class="font-headline-md text-primary">$12.00</span>
-</div>
-<p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Hand-crafted herbal infusion with citrus notes and a signature gold-leaf finish.</p>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline">CRAFTED</span>
-</div>
-<div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
-<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">remove</span>
-</button>
-<span class="px-3 font-label-lg">2</span>
-<button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
-<span class="material-symbols-outlined text-[18px]">add</span>
-</button>
-</div>
-</div>
-</div>
-</div>
+<div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-gutter-md">
+  <!-- Dynamic Items Will Be Rendered Here -->
 </div>
 </main>
 <!-- Footer -->
@@ -305,4 +192,298 @@
 </a>
 </div>
 </nav>
+<script>
+  const PRODUCTS = [
+    // --- BURGERS ---
+    {
+      id: 'brioche-wagyu',
+      name: 'Brioche Wagyu',
+      description: 'Double A5 Wagyu patty, black truffle aioli, aged cheddar, toasted gold-dusted brioche bun.',
+      price: 34.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAU0u9Oix2Q6Dw6kZAY8KCbhqvlqgc9yb2nXCtfixlcmAWIOzBu-wWtXbS1Tb8tcq0Gg-YPOHi-tWKwdA3lsSaxpElXVj9Q3pXb7SYv6mVSU9TnDpyapZaxHF0lC4OX0G7f9UCgJ30A6sMqr-ex_PGMu0A90vdE9ylYA2K9VOaFyz81iiyiXVo4cdEsAP5gwkXXCtN_txzOxwyEwwmBxzCSt6ikb14tpolYqwAMhWw2Ylw4jocs2cCSbD6SrgQsb1jEaw99xz36thGy',
+      category: 'burgers',
+      tag: "Chef's Choice"
+    },
+    {
+      id: 'truffle-wagyu-large',
+      name: 'The Truffle Wagyu',
+      description: 'A decadent masterpiece featuring A5 Wagyu beef, triple-cream brie, and freshly shaved Périgord black truffles.',
+      price: 42.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKmmNkwYcrxT42tFdvOAeup0YMF3K8i31nzQl76u0Xr1uB3jYp6fc4OJ3BDZ9v2bYmk4d59nbtsAk4ZjtjB4oAnwC-wBvZZ3BkF2SHqnol1aPs_4ecgVzNPsGLnb13c8qSdk33mVG-h5AljDxU0N4RBojoQR7RJP1mc2hVlqTGAUB7HTNj-JZEFfzMmIUEybeH8gSsf55vPR_YSNO8mkZQyo72ybvAX_yPIUmyBfzQtZiLPO4NIS0hHODM0Q6EA_h3JTDjklfrQ1d9',
+      category: 'burgers',
+      tag: 'Best Seller'
+    },
+    {
+      id: 'golden-royal-burger',
+      name: 'Golden Royal Burger',
+      description: '24K gold-wrapped double Prime beef, caviar spread, black truffle cheese, champagne glaze.',
+      price: 85.00,
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80',
+      category: 'burgers',
+      tag: 'Ultra Luxury'
+    },
+    {
+      id: 'caviar-lobster-roll-burger',
+      name: 'Caviar Lobster Burger',
+      description: 'Fresh Maine lobster claw, Ossetra caviar, brown butter mayonnaise, toasted milk bun.',
+      price: 48.00,
+      image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80',
+      category: 'burgers',
+      tag: 'Seafood Special'
+    },
+    {
+      id: 'foie-gras-deluxe',
+      name: 'Foie Gras Deluxe',
+      description: 'Wagyu beef patty topped with pan-seared foie gras, fig compote, aged balsamic reduction.',
+      price: 54.00,
+      image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
+      category: 'burgers',
+      tag: 'Epicurean'
+    },
+    {
+      id: 'imperial-bison-burger',
+      name: 'Imperial Bison Burger',
+      description: 'Organic free-range bison patty, sharp white cheddar, caramelized shallots, wild berry relish.',
+      price: 38.00,
+      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=600&q=80',
+      category: 'burgers',
+      tag: 'Signature'
+    },
+
+    // --- PIZZA ---
+    {
+      id: 'truffle-mushroom',
+      name: 'Truffle Mushroom',
+      description: 'Wild forest mushrooms, charcoal dough, fresh black truffle shavings, creamy burrata.',
+      price: 28.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEVjxEuc0-hYnQjdCu0c5sEkLk22k6bWJtWb9thnnNivXOaYQ3a5hZq0kZVp5-501kimqYn2DRR6Zz3TdL_dRXRDrv_wVe4nGCPg88j17UHa8pOtbqFNqKjumwmL_DH2H26Ha6TmWQNG0ZsOhlhTY7b0oeX5KBag9-VJMpDYqvrksUaceU_Tr_R48EPvzWllZf_MYM9Irl0msOk4OdmjKsj8n-Nf2V3bUemNsSYRUEmpC4MybaR0Y62YtXbr4NPCF_7a8os6k8R1ME',
+      category: 'pizza',
+      tag: 'New Arrival'
+    },
+    {
+      id: 'burrata-bliss',
+      name: 'Burrata Bliss',
+      description: 'Whole fresh burrata heart, San Marzano tomatoes, heirloom confit, 20-year aged balsamic.',
+      price: 34.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAosms2w2yac-B8DC_z6DTqj-BL6JDwPee0Ed6XTVQxpwy_t4wejFoyuTE8NrJjnSe80Mh_4s9rOiPhxfnpVTqgJ8oLNc9slprPsQBnmq5MWM3HkhLUaVBKijwodI7VJcCnmsrxbTQds5TMpD85TZk0Q-V4a8ABPXVUqePDi_NvoxvrCTehcaamLl7DHLWslde4do4Kw9P4pYxwQ6fTNXcRVisyCOvR7X6BED38mfCS30MZQowmZXaH4k2KFdMIs7fRN0JsDzbD7ZsH',
+      category: 'pizza',
+      tag: "Chef's Choice"
+    },
+    {
+      id: 'gold-leaf-caviar-pizza',
+      name: 'Gold Leaf Caviar Pizza',
+      description: '24K gold leaf flakes, Royal Ossetra caviar, smoked salmon carpaccio, crème fraîche.',
+      price: 95.00,
+      image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
+      category: 'pizza',
+      tag: 'Prestige'
+    },
+    {
+      id: 'iberico-fig-pizza',
+      name: 'Iberico Fig Pizza',
+      description: '36-month cured Jamón Ibérico, fresh Mission figs, gorgonzola dolce, fresh arugula.',
+      price: 36.00,
+      image: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=80',
+      category: 'pizza',
+      tag: 'Classic Italian'
+    },
+    {
+      id: 'lobster-thermidor-pizza',
+      name: 'Lobster Thermidor Pizza',
+      description: 'Butter-poached lobster chunks, cognac cream sauce, gruyère cheese, fresh chives.',
+      price: 42.00,
+      image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80',
+      category: 'pizza',
+      tag: 'Seafood'
+    },
+    {
+      id: 'quattro-formaggi-truffle',
+      name: 'Quattro Formaggi Truffle',
+      description: 'Fontina, Taleggio, Gorgonzola, Burrata, topped with shaved white Alba truffles.',
+      price: 39.00,
+      image: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&w=600&q=80',
+      category: 'pizza',
+      tag: 'White Base'
+    },
+
+    // --- PASTA ---
+    {
+      id: 'classic-carbonara',
+      name: 'Classic Carbonara',
+      description: 'Pecorino Romano, organic egg yolk, crispy house-cured guanciale, hand-rolled pasta.',
+      price: 24.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvJ2Dswk8YlSC-eCnjbRPnlO5FRtKEalNglqBtEdGv_ML4vmGRLIahFn4ofX2fAc3jDfm3UtIhaQFpBmDu4lYa_C8ucr4a2xw9Z5JcMQJ2SHhOfpwPG1tJFBZmWhkn5W5XQYge8vsF8W_Pf78mIgfQX1kNU4HnLe3c9h_MNU3cPnRmFkUDZ63Sp3Atm4c13fmzCazE8ER8m-CEjsw-l2l8R4Hai-Pdmc_tjNGaN85-k6qZo_rJrCbMulSIsDT-F_K0Xo84Cf-_oqFd',
+      category: 'pasta',
+      tag: 'Signature'
+    },
+    {
+      id: 'lobster-tagliolini',
+      name: 'Lobster Tagliolini',
+      description: 'Hand-cut squid ink tagliolini, butter-poached Maine lobster tail, saffron tomato reduction.',
+      price: 45.00,
+      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80',
+      category: 'pasta',
+      tag: 'Signature'
+    },
+    {
+      id: 'white-truffle-tagliatelle',
+      name: 'White Truffle Tagliatelle',
+      description: 'House-made egg tagliatelle tossed in Alpine butter, covered in shaved white truffles.',
+      price: 55.00,
+      image: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80',
+      category: 'pasta',
+      tag: 'Chef Choice'
+    },
+    {
+      id: 'saffron-seafood-linguine',
+      name: 'Saffron Seafood Linguine',
+      description: 'Saffron linguine with scallops, jumbo prawns, clams, wild garlic, and white wine.',
+      price: 38.00,
+      image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80',
+      category: 'pasta',
+      tag: 'Seafood'
+    },
+    {
+      id: 'wagyu-bolognese-pappardelle',
+      name: 'Wagyu Bolognese',
+      description: 'Slow-braised A5 Wagyu beef ragù, hand-rolled wide pappardelle pasta, fresh ricotta.',
+      price: 36.00,
+      image: 'https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=600&q=80',
+      category: 'pasta',
+      tag: 'Classic'
+    },
+    {
+      id: 'wild-mushroom-truffle-ravioli',
+      name: 'Mushroom Truffle Ravioli',
+      description: 'House-made ravioli stuffed with wild porcini, served in sage butter with fresh truffles.',
+      price: 32.00,
+      image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80',
+      category: 'pasta',
+      tag: 'Vegetarian'
+    },
+
+    // --- DRINKS ---
+    {
+      id: 'nitro-cold-brew',
+      name: 'Nitro Cold Brew',
+      description: 'Slow-steeped organic coffee infused with pure nitrogen for a velvety, creamy effect.',
+      price: 8.00,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAPyZF1R_4sWzjrzUc914Un2AnO0PKesfTX53b3y7mewgQ0E9yj2qC8Lp8uNiuztQ578XCi0epHFNHHqVfld0Apv_AJwMNvPW3hei3yCT_lm1A-pgw0aBAj3bVsJCa9xERArQD8UnU7LOX-2gQGnJorpwr4qVkwJRgHgrHhS6fEGqz3tjvhS6xCjXe6xwRfpD9BPIZ1_NNEPIf9eoTkIKOwKUG_v1LXFonm-7ZODtPfSpb3pHvYNBzchhldGkByqHbGL7olXsxWRlRB',
+      category: 'drinks',
+      tag: 'Lumina Elixir'
+    },
+    {
+      id: 'gold-espresso-martini',
+      name: 'Gold Espresso Martini',
+      description: 'Signature espresso, premium vodka, gold-dusted coffee beans, house coffee liqueur.',
+      price: 18.00,
+      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80',
+      category: 'drinks',
+      tag: 'Cocktail'
+    },
+    {
+      id: 'saffron-rose-latte',
+      name: 'Saffron Rose Latte',
+      description: 'Organic milk, organic saffron threads, damask rose water, sweetened with acacia honey.',
+      price: 12.00,
+      image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
+      category: 'drinks',
+      tag: 'Elixir'
+    },
+    {
+      id: 'smoked-rosemary-old-fashioned',
+      name: 'Smoked Old Fashioned',
+      description: 'Barrel-aged bourbon, maple syrup, orange bitters, smoked with fresh rosemary.',
+      price: 20.00,
+      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80',
+      category: 'drinks',
+      tag: 'Cocktail'
+    },
+    {
+      id: 'hibiscus-champagne-spritz',
+      name: 'Hibiscus Champagne',
+      description: 'Premium Champagne, organic wild hibiscus syrup, fresh mint, club soda splash.',
+      price: 22.00,
+      image: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80',
+      category: 'drinks',
+      tag: 'Sparkling'
+    },
+    {
+      id: 'royal-matcha-frappe',
+      name: 'Royal Matcha Frappé',
+      description: 'Ceremonial grade Uji matcha, organic almond milk, sweet cream, silver flakes.',
+      price: 14.00,
+      image: 'https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&fit=crop&w=600&q=80',
+      category: 'drinks',
+      tag: 'Wellness'
+    }
+  ];
+
+  const categoryContainer = document.getElementById('category-container');
+  const menuGrid = document.getElementById('menu-grid');
+
+  function renderCategory(category) {
+    // 1. Highlight button
+    const buttons = categoryContainer.querySelectorAll('.category-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-category') === category) {
+        btn.className = "category-btn flex items-center gap-2 px-6 py-3 rounded-full glossy-button text-on-primary-fixed font-label-lg whitespace-nowrap";
+      } else {
+        btn.className = "category-btn flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container border border-outline/20 text-on-surface-variant font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors";
+      }
+    });
+
+    // 2. Filter products
+    const filteredProducts = category === 'all' 
+      ? PRODUCTS 
+      : PRODUCTS.filter(p => p.category === category);
+
+    // 3. Clear and render grid
+    menuGrid.innerHTML = '';
+    
+    filteredProducts.forEach(product => {
+      const card = document.createElement('div');
+      card.className = "glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]";
+      card.innerHTML = `
+        <div class="w-48 h-48 md:w-56 md:h-56 -mt-20 md:-ml-20 md:mt-0 flex-shrink-0 relative">
+          <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all"></div>
+          <img class="w-full h-full object-cover rounded-full floating-image relative z-10" src="${product.image}" alt="${product.name}"/>
+        </div>
+        <div class="flex-grow w-full">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline-md text-primary-fixed-dim">${product.name}</h3>
+            <span class="font-headline-md text-primary">$${product.price.toFixed(2)}</span>
+          </div>
+          <p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">${product.description}</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline uppercase">${product.tag || 'PREMIUM'}</span>
+            </div>
+            <div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
+              <button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
+                <span class="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <span class="px-3 font-label-lg">0</span>
+              <button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      menuGrid.appendChild(card);
+    });
+  }
+
+  // Add click listeners to category buttons
+  categoryContainer.addEventListener('click', (e) => {
+    const btn = e.target.closest('.category-btn');
+    if (!btn) return;
+    const category = btn.getAttribute('data-category');
+    renderCategory(category);
+  });
+
+  // Initial render (render all)
+  renderCategory('all');
+</script>
 </body></html>
