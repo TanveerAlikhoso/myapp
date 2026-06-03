@@ -158,6 +158,16 @@
   <!-- Dynamic Items Will Be Rendered Here -->
 </div>
 </main>
+<!-- Floating Cart Button (appears when cart has items) -->
+<div id="cart-fab" class="hidden fixed bottom-28 right-5 z-50">
+  <button onclick="window.parent.postMessage({type:'NAVIGATE',data:'/checkout'},'*')" 
+    style="background: linear-gradient(135deg, #ff7a00, #dc9100); box-shadow: 0 8px 30px rgba(255,122,0,0.5);" 
+    class="flex items-center gap-2 px-5 py-3.5 rounded-full text-white font-label-lg transition-all active:scale-95">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">shopping_bag</span>
+    <span>View Cart</span>
+    <span id="cart-count-badge" class="bg-white text-primary-container rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">0</span>
+  </button>
+</div>
 <!-- Footer -->
 <footer class="bg-surface-container-lowest w-full">
 <div class="flex flex-col items-center gap-6 py-12 px-margin-mobile w-full text-center max-w-container-max mx-auto">
@@ -422,6 +432,9 @@
   const categoryContainer = document.getElementById('category-container');
   const menuGrid = document.getElementById('menu-grid');
 
+  // Cart state object: { productId: quantity }
+  const cartState = {};
+
   function renderCategory(category) {
     // 1. Highlight button
     const buttons = categoryContainer.querySelectorAll('.category-btn');
@@ -442,6 +455,7 @@
     menuGrid.innerHTML = '';
     
     filteredProducts.forEach(product => {
+      const qty = cartState[product.id] || 0;
       const card = document.createElement('div');
       card.className = "glass-panel rounded-[32px] p-8 relative flex flex-col md:flex-row gap-8 items-center group transition-transform hover:scale-[1.02]";
       card.innerHTML = `
@@ -460,11 +474,11 @@
               <span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label-sm border border-outline/10 text-outline uppercase">${product.tag || 'PREMIUM'}</span>
             </div>
             <div class="flex items-center bg-surface-container-low rounded-full border border-outline/20 p-1">
-              <button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
+              <button data-action="remove" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}" class="qty-btn w-8 h-8 flex items-center justify-center hover:bg-surface-variant rounded-full text-primary transition-colors">
                 <span class="material-symbols-outlined text-[18px]">remove</span>
               </button>
-              <span class="px-3 font-label-lg">0</span>
-              <button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg">
+              <span class="qty-display px-3 font-label-lg" data-id="${product.id}">${qty}</span>
+              <button data-action="add" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}" class="qty-btn w-8 h-8 flex items-center justify-center bg-primary rounded-full text-on-primary-container shadow-lg hover:bg-secondary transition-colors">
                 <span class="material-symbols-outlined text-[18px]">add</span>
               </button>
             </div>
@@ -474,6 +488,38 @@
       menuGrid.appendChild(card);
     });
   }
+
+  // Delegate click events on menu grid for +/-
+  menuGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.qty-btn');
+    if (!btn) return;
+    const action = btn.getAttribute('data-action');
+    const id = btn.getAttribute('data-id');
+    const name = btn.getAttribute('data-name');
+    const price = parseFloat(btn.getAttribute('data-price'));
+    const image = btn.getAttribute('data-image');
+    const display = menuGrid.querySelector(`.qty-display[data-id="${id}"]`);
+
+    if (action === 'add') {
+      cartState[id] = (cartState[id] || 0) + 1;
+      if (display) display.textContent = cartState[id];
+      btn.style.transform = 'scale(1.2)';
+      setTimeout(() => { btn.style.transform = 'scale(1)'; }, 150);
+      window.parent.postMessage({
+        type: 'ADD_TO_CART',
+        data: { productId: id, name, price, image }
+      }, '*');
+    } else if (action === 'remove') {
+      if ((cartState[id] || 0) > 0) {
+        cartState[id] -= 1;
+        if (display) display.textContent = cartState[id];
+        window.parent.postMessage({
+          type: 'REMOVE_FROM_CART',
+          data: { productId: id }
+        }, '*');
+      }
+    }
+  });
 
   // Add click listeners to category buttons
   categoryContainer.addEventListener('click', (e) => {
@@ -485,5 +531,26 @@
 
   // Initial render (render all)
   renderCategory('all');
+
+  // Sync cart count badge with parent CART_UPDATE messages
+  window.addEventListener('message', (event) => {
+    const { type, data } = event.data || {};
+    if (type === 'CART_UPDATE' && data && data.cart) {
+      const totalQty = data.cart.reduce((sum, item) => sum + item.quantity, 0);
+      // Sync cartState from parent to ensure UI shows correct quantities
+      data.cart.forEach(item => { cartState[item.id] = item.quantity; });
+      const fab = document.getElementById('cart-fab');
+      const badge = document.getElementById('cart-count-badge');
+      if (totalQty > 0) {
+        fab.classList.remove('hidden');
+        if (badge) badge.textContent = totalQty;
+      } else {
+        fab.classList.add('hidden');
+      }
+    }
+  });
+
+  // Request current cart from parent to sync on load
+  window.parent.postMessage({ type: 'REQUEST_CART' }, '*');
 </script>
 </body></html>

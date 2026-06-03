@@ -1,341 +1,344 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html class="dark" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Checkout | Lumina Bites</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-panel {
-            background: rgba(25, 25, 25, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glow-button {
-            box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 35px rgba(255, 122, 0, 0.5);
-            transform: translateY(-2px);
-        }
-        body {
-            background-color: #111111;
-            color: #e5e2e1;
-        }
-    </style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-panel { background: rgba(25, 25, 25, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+  .glow-button { box-shadow: 0 0 20px rgba(255,122,0,0.3); transition: all 0.3s ease; }
+  .glow-button:hover { box-shadow: 0 0 35px rgba(255,122,0,0.5); transform: translateY(-2px); }
+  body { background-color: #111111; color: #e5e2e1; }
+  .item-fade-in { animation: fadeSlide 0.35s ease forwards; }
+  @keyframes fadeSlide { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+</style>
 <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-tertiary-fixed-variant": "#920703",
-                      "on-error-container": "#ffdad6",
-                      "on-surface-variant": "#e0c0af",
-                      "background": "#131313",
-                      "outline-variant": "#584235",
-                      "primary-fixed": "#ffdbc8",
-                      "error-container": "#93000a",
-                      "error": "#ffb4ab",
-                      "on-error": "#690005",
-                      "inverse-surface": "#e5e2e1",
-                      "on-secondary": "#452b00",
-                      "on-primary-fixed-variant": "#753400",
-                      "on-primary-container": "#5c2800",
-                      "inverse-on-surface": "#313030",
-                      "tertiary-fixed": "#ffdad4",
-                      "secondary-container": "#dc9100",
-                      "on-primary-fixed": "#321200",
-                      "on-tertiary-container": "#750000",
-                      "surface-container-highest": "#353534",
-                      "secondary-fixed-dim": "#ffb955",
-                      "tertiary-fixed-dim": "#ffb4a8",
-                      "surface-variant": "#353534",
-                      "primary": "#ffb68b",
-                      "on-secondary-fixed-variant": "#633f00",
-                      "on-secondary-container": "#4f3100",
-                      "inverse-primary": "#994700",
-                      "primary-container": "#ff7a00",
-                      "on-surface": "#e5e2e1",
-                      "surface-container-low": "#1c1b1b",
-                      "surface-bright": "#3a3939",
-                      "tertiary": "#ffb4a8",
-                      "surface-container-high": "#2a2a2a",
-                      "surface-tint": "#ffb68b",
-                      "outline": "#a78b7c",
-                      "on-tertiary-fixed": "#410000",
-                      "surface-container-lowest": "#0e0e0e",
-                      "on-primary": "#522300",
-                      "secondary": "#ffb955",
-                      "primary-fixed-dim": "#ffb68b",
-                      "on-tertiary": "#690000",
-                      "on-secondary-fixed": "#291800",
-                      "on-background": "#e5e2e1",
-                      "surface-dim": "#131313",
-                      "tertiary-container": "#ff7663",
-                      "secondary-fixed": "#ffddb4",
-                      "surface-container": "#201f1f",
-                      "surface": "#131313"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "unit": "4px",
-                      "gutter-md": "24px",
-                      "gutter-sm": "16px",
-                      "container-max": "1280px",
-                      "margin-mobile": "20px",
-                      "margin-desktop": "64px"
-              },
-              "fontFamily": {
-                      "label-lg": ["Montserrat"],
-                      "label-sm": ["Montserrat"],
-                      "headline-md": ["Sora"],
-                      "headline-lg-mobile": ["Sora"],
-                      "headline-lg": ["Sora"],
-                      "display-lg": ["Sora"],
-                      "body-lg": ["Montserrat"],
-                      "body-md": ["Montserrat"]
-              },
-              "fontSize": {
-                      "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
-                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
-                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
-              }
-            },
-          },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-surface-variant": "#e0c0af",
+          "background": "#131313",
+          "outline-variant": "#584235",
+          "primary-fixed": "#ffdbc8",
+          "on-secondary": "#452b00",
+          "on-primary-container": "#5c2800",
+          "secondary-container": "#dc9100",
+          "surface-container-highest": "#353534",
+          "secondary-fixed-dim": "#ffb955",
+          "surface-variant": "#353534",
+          "primary": "#ffb68b",
+          "on-secondary-container": "#4f3100",
+          "inverse-primary": "#994700",
+          "primary-container": "#ff7a00",
+          "on-surface": "#e5e2e1",
+          "surface-container-low": "#1c1b1b",
+          "surface-bright": "#3a3939",
+          "tertiary": "#ffb4a8",
+          "surface-container-high": "#2a2a2a",
+          "surface-tint": "#ffb68b",
+          "outline": "#a78b7c",
+          "surface-container-lowest": "#0e0e0e",
+          "on-primary": "#522300",
+          "secondary": "#ffb955",
+          "primary-fixed-dim": "#ffb68b",
+          "on-background": "#e5e2e1",
+          "surface-dim": "#131313",
+          "tertiary-container": "#ff7663",
+          "secondary-fixed": "#ffddb4",
+          "surface-container": "#201f1f",
+          "surface": "#131313"
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        spacing: { "unit": "4px", "gutter-md": "24px", "gutter-sm": "16px", "container-max": "1280px", "margin-mobile": "20px", "margin-desktop": "64px" },
+        fontFamily: { "label-lg": ["Montserrat"], "label-sm": ["Montserrat"], "headline-md": ["Sora"], "headline-lg": ["Sora"], "display-lg": ["Sora"], "body-lg": ["Montserrat"], "body-md": ["Montserrat"] },
+        fontSize: {
+          "label-lg": ["14px", {"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],
+          "label-sm": ["12px", {"lineHeight":"1.2","fontWeight":"500"}],
+          "headline-md": ["24px", {"lineHeight":"1.3","fontWeight":"600"}],
+          "headline-lg": ["32px", {"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "display-lg": ["48px", {"lineHeight":"1.1","letterSpacing":"-0.04em","fontWeight":"800"}],
+          "body-lg": ["18px", {"lineHeight":"1.6","fontWeight":"400"}],
+          "body-md": ["16px", {"lineHeight":"1.6","fontWeight":"400"}]
         }
-      </script>
+      }
+    }
+  }
+</script>
 </head>
 <body class="font-body-md text-on-surface">
-<!-- Top Navigation -->
 
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
-<h1 class="font-display-lg text-display-lg mb-12 text-primary-container">Checkout</h1>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-<!-- Left Column: Details -->
-<div class="lg:col-span-8 space-y-12">
-<!-- Delivery Address Section -->
-<section class="space-y-6">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
-<h2 class="font-headline-lg text-headline-lg">Delivery Address</h2>
-</div>
-<div class="glass-panel p-6 rounded-xl flex flex-col md:flex-row gap-6">
-<div class="flex-1 space-y-4">
-<div class="bg-surface-container-high p-4 rounded-lg border border-white/5">
-<p class="font-label-lg text-primary mb-1">Current Location</p>
-<p class="font-body-lg text-on-surface">1200 Luxury Plaza, Penthouse 4</p>
-<p class="text-on-surface-variant">Beverly Hills, CA 90210</p>
-</div>
-<button class="text-primary font-label-lg flex items-center gap-2 hover:underline">
-<span class="material-symbols-outlined text-sm">edit</span> Change Address
-                            </button>
-</div>
-<div class="w-full md:w-64 h-40 rounded-lg overflow-hidden relative border border-white/10">
-<img class="w-full h-full object-cover" data-alt="A high-end cinematic satellite view of a luxury residential district in Beverly Hills at dusk. The map features sophisticated dark tones with glowing orange streetlights highlighting the grid of streets and lush estates. The atmosphere is prestigious and modern, aligned with a premium digital concierge aesthetic." data-location="Beverly Hills" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2wrLFPLDB-OVZQHeJsJCzcMVnzlbuEthbWGhBf9KD81u3oSM01LMMpzXqfjuV9ttlKESfiU8pzwFUNxpd8yG5TYzbHHd0o4ZNUmi0iFir7UN3T4FOWA78UCuE8l5qF3ByjOB_cfzsGNol3SmXKpUK6ZNUuBVE3v7df2J19A7DKxRSTcu_uOmusJzv7-y4p1yuC9QEPh5c6V9Am7WUfAdH5VqmIz47Gh8dmq_Kvxq2vTUAj9q9P__b1bECol2WsrW5p_7VXP_wVYMN"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-<div class="absolute bottom-3 left-3 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">Selected</div>
-</div>
-</div>
-</section>
-<!-- Delivery Time Section -->
-<section class="space-y-6">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">schedule</span>
-<h2 class="font-headline-lg text-headline-lg">Delivery Time</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<label class="relative group cursor-pointer">
-<input checked="" class="peer hidden" name="time" type="radio"/>
-<div class="glass-panel p-6 rounded-xl border-2 border-transparent peer-checked:border-primary transition-all group-hover:bg-white/5">
-<div class="flex justify-between items-start mb-2">
-<span class="font-headline-md text-headline-md">ASAP</span>
-<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<p class="text-on-surface-variant font-body-md">25 - 35 mins</p>
-</div>
-</label>
-<label class="relative group cursor-pointer">
-<input class="peer hidden" name="time" type="radio"/>
-<div class="glass-panel p-6 rounded-xl border-2 border-transparent peer-checked:border-primary transition-all group-hover:bg-white/5">
-<div class="flex justify-between items-start mb-2">
-<span class="font-headline-md text-headline-md">Schedule</span>
-<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<p class="text-on-surface-variant font-body-md">Choose for later</p>
-</div>
-</label>
-</div>
-</section>
-<!-- Payment Method Section -->
-<section class="space-y-6">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
-<h2 class="font-headline-lg text-headline-lg">Payment Method</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<!-- Apple Pay -->
-<div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-white/5 transition-all">
-<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-black text-3xl">ios</span>
-</div>
-<span class="font-label-lg">Apple Pay</span>
-</div>
-<!-- Credit Card -->
-<div class="glass-panel p-6 rounded-xl border-2 border-primary bg-gradient-to-br from-primary/10 to-transparent flex flex-col gap-4 cursor-pointer">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary text-3xl">credit_card</span>
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-<div>
-<p class="font-label-lg tracking-widest">•••• 8829</p>
-<p class="text-[10px] text-on-surface-variant uppercase">Lumina Reserve Card</p>
-</div>
-</div>
-<!-- Google Pay -->
-<div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-white/5 transition-all">
-<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-red-500 text-3xl">google</span>
-</div>
-<span class="font-label-lg">Google Pay</span>
-</div>
-</div>
-<div class="glass-panel p-8 rounded-xl space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="font-label-sm uppercase text-on-surface-variant tracking-wider">Cardholder Name</label>
-<input class="w-full bg-surface-container-highest border-none rounded-lg p-4 font-label-lg focus:ring-2 focus:ring-secondary transition-all" type="text" value="ALEXANDER VANCE"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-sm uppercase text-on-surface-variant tracking-wider">Expiry Date</label>
-<input class="w-full bg-surface-container-highest border-none rounded-lg p-4 font-label-lg focus:ring-2 focus:ring-secondary transition-all" placeholder="MM/YY" type="text"/>
-</div>
-</div>
-</div>
-</section>
-</div>
-<!-- Right Column: Order Summary (Sticky) -->
-<div class="lg:col-span-4">
-<aside class="sticky top-32 glass-panel rounded-2xl p-8 border border-white/10 shadow-2xl">
-<h3 class="font-headline-lg text-headline-lg mb-8 border-b border-white/10 pb-4">Order Summary</h3>
-<div class="space-y-6 mb-8">
-<!-- Item 1 -->
-<div class="flex gap-4">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
-<img class="w-full h-full object-cover" data-alt="A macro shot of a Brioche Wagyu Burger on a black slate plate. The golden brioche bun glistens under soft studio lighting, with melted aged cheddar cheese cascading over a thick, perfectly seared wagyu patty. Vibrant green arugula and heirloom tomatoes add a pop of color against the moody, dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW3m-nWXrwS1Td579eVQ75xaUUezzVSHs8-46V7QzBnGjlfgp7m94hr32ofKhgQ8nfJ9y6mewpB44293yUWLw4Aipe80fNYziXk6EmYWLSNvl-wUy_1DwhD7U0sUpk3-VJivdkChE46tFDK-qjR6Bpu6OGcFKvR49WmxC8KZpndekJxpbHd5V8xGETAsy_cenfCF25gBf0fy1C7f7_auqmO6LTH8lZsWYezOD0ifmmoXWkYCY0qW_RMsTBacGiIwl-EGJSba6c2_dC"/>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start">
-<p class="font-label-lg text-on-surface">Brioche Wagyu Burger</p>
-<p class="font-label-lg text-primary">$32.00</p>
-</div>
-<p class="text-xs text-on-surface-variant">Qty: 1 • Rare</p>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex gap-4">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
-<img class="w-full h-full object-cover" data-alt="A top-down cinematic view of a Truffle Mushroom Pizza with a blistered charcoal crust. Thinly sliced black truffles and sautéed wild mushrooms are scattered over creamy mozzarella. Ambient golden light reflects off the truffle oil, creating a rich, opulent texture set against a dark wooden surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvszVOpwpItWYJRErQaGFeRpgyfN97lRbUig_WhQbBxozLPiJBmENFKSO5rcLqORvZ0MuM8DF2TUAEppLDBlrXsoYDY9d4ovblGvAwYlRUwaIhdXFB5liS76HMRYHLVDH5YQDmYnY85iZPmnaB8XBUGYkjvcnA8yjQanZTiBIWGGgnsqMgoRQhXiuyZD5vj8-kJVbZT3Z9TibVnYbrfovkzMnzTUIoHZrUu6zQMLmPuPBr4gz1qhRngTgScpfqUa3ELdoizeEvwemm"/>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start">
-<p class="font-label-lg text-on-surface">Truffle Mushroom Pizza</p>
-<p class="font-label-lg text-primary">$45.00</p>
-</div>
-<p class="text-xs text-on-surface-variant">Qty: 1 • Extra Truffle</p>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="flex gap-4">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
-<img class="w-full h-full object-cover" data-alt="The Signature Lumina Drink served in a heavy crystal tumbler with a single large clear ice sphere. The liquid is a vibrant amber with golden flecks, illuminated by a subtle orange glow from beneath. Wisps of aromatic smoke hover above the glass in a dark, sophisticated bar setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ3ID7TvatvR0Yxo0Jq0elHaNnmd_hMkPw5Ag5qqvhyialiEwWHFcvh3LjT6ZsIsk5_R67j3_bq_Hom1Vr6NZ5WNKKuzpZFi4cWYoCOUSZQTTp2gl-k4CbgD5jI6U_q_E91iyxr5MHShRhIr7aipmmq3ZHnHCuhtZ00CqL_aoSO1Z_7As6d_-8PyjUjD4DzX16k3hBqW6gK0rOqkxHvnLI37scBcMOtt0oyjOmmhc5HVOfFuU8Ri2vZK0FZCyV_CRVOD-vWMkbHQp6"/>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-start">
-<p class="font-label-lg text-on-surface">Signature Lumina Drink</p>
-<p class="font-label-lg text-primary">$18.00</p>
-</div>
-<p class="text-xs text-on-surface-variant">Qty: 2 • On the rocks</p>
-</div>
-</div>
-</div>
-<div class="space-y-4 border-t border-white/10 pt-6">
-<div class="flex justify-between font-body-md">
-<span class="text-on-surface-variant">Subtotal</span>
-<span>$113.00</span>
-</div>
-<div class="flex justify-between font-body-md">
-<span class="text-on-surface-variant">Delivery Fee</span>
-<span>$5.00</span>
-</div>
-<div class="flex justify-between font-body-md">
-<span class="text-on-surface-variant">Luxury Packaging</span>
-<span class="text-secondary">$12.00</span>
-</div>
-<div class="flex justify-between pt-4 border-t border-white/10">
-<span class="font-headline-md text-headline-md">Total</span>
-<span class="font-headline-md text-headline-md text-primary">$130.00</span>
-</div>
-</div>
-<button class="w-full mt-10 py-5 px-6 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-display-lg text-label-lg text-on-primary-container uppercase tracking-widest glow-button">
-                        Confirm Order
-                    </button>
-<p class="text-[10px] text-center mt-6 text-on-surface-variant/60 uppercase tracking-tighter">Secure encrypted transaction by Lumina Pay</p>
-</aside>
-</div>
-</div>
+  <h1 class="font-display-lg text-display-lg mb-12 text-primary-container">Checkout</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+    <!-- LEFT: Delivery + Time + Payment -->
+    <div class="lg:col-span-8 space-y-12">
+
+      <!-- Delivery Address -->
+      <section class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">location_on</span>
+          <h2 class="font-headline-lg text-headline-lg">Delivery Address</h2>
+        </div>
+        <div class="glass-panel p-6 rounded-xl flex flex-col md:flex-row gap-6">
+          <div class="flex-1 space-y-4">
+            <div class="bg-surface-container-high p-4 rounded-lg border border-white/5">
+              <p class="font-label-lg text-primary mb-1">Current Location</p>
+              <p class="font-body-lg text-on-surface">1200 Luxury Plaza, Penthouse 4</p>
+              <p class="text-on-surface-variant">Beverly Hills, CA 90210</p>
+            </div>
+            <button class="text-primary font-label-lg flex items-center gap-2 hover:underline">
+              <span class="material-symbols-outlined text-sm">edit</span> Change Address
+            </button>
+          </div>
+          <div class="w-full md:w-64 h-40 rounded-lg overflow-hidden relative border border-white/10">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2wrLFPLDB-OVZQHeJsJCzcMVnzlbuEthbWGhBf9KD81u3oSM01LMMpzXqfjuV9ttlKESfiU8pzwFUNxpd8yG5TYzbHHd0o4ZNUmi0iFir7UN3T4FOWA78UCuE8l5qF3ByjOB_cfzsGNol3SmXKpUK6ZNUuBVE3v7df2J19A7DKxRSTcu_uOmusJzv7-y4p1yuC9QEPh5c6V9Am7WUfAdH5VqmIz47Gh8dmq_Kvxq2vTUAj9q9P__b1bECol2WsrW5p_7VXP_wVYMN" alt="Map"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">Selected</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Delivery Time -->
+      <section class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">schedule</span>
+          <h2 class="font-headline-lg text-headline-lg">Delivery Time</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="relative group cursor-pointer">
+            <input checked class="peer hidden" name="time" type="radio"/>
+            <div class="glass-panel p-6 rounded-xl border-2 border-transparent peer-checked:border-primary transition-all group-hover:bg-white/5">
+              <div class="flex justify-between items-start mb-2">
+                <span class="font-headline-md text-headline-md">ASAP</span>
+                <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              </div>
+              <p class="text-on-surface-variant font-body-md">25 - 35 mins</p>
+            </div>
+          </label>
+          <label class="relative group cursor-pointer">
+            <input class="peer hidden" name="time" type="radio"/>
+            <div class="glass-panel p-6 rounded-xl border-2 border-transparent peer-checked:border-primary transition-all group-hover:bg-white/5">
+              <div class="flex justify-between items-start mb-2">
+                <span class="font-headline-md text-headline-md">Schedule</span>
+                <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity" style="font-variation-settings:'FILL' 1;">check_circle</span>
+              </div>
+              <p class="text-on-surface-variant font-body-md">Choose for later</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Payment Method -->
+      <section class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">payments</span>
+          <h2 class="font-headline-lg text-headline-lg">Payment Method</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-white/5 transition-all">
+            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+              <span class="material-symbols-outlined text-black text-3xl">ios</span>
+            </div>
+            <span class="font-label-lg">Apple Pay</span>
+          </div>
+          <div class="glass-panel p-6 rounded-xl border-2 border-primary bg-gradient-to-br from-primary/10 to-transparent flex flex-col gap-4 cursor-pointer">
+            <div class="flex justify-between items-start">
+              <span class="material-symbols-outlined text-secondary text-3xl">credit_card</span>
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">check_circle</span>
+            </div>
+            <div>
+              <p class="font-label-lg tracking-widest">•••• 8829</p>
+              <p class="text-[10px] text-on-surface-variant uppercase">Lumina Reserve Card</p>
+            </div>
+          </div>
+          <div class="glass-panel p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-white/5 transition-all">
+            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+              <span class="material-symbols-outlined text-red-500 text-3xl">google</span>
+            </div>
+            <span class="font-label-lg">Google Pay</span>
+          </div>
+        </div>
+        <div class="glass-panel p-8 rounded-xl space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="font-label-sm uppercase text-on-surface-variant tracking-wider">Cardholder Name</label>
+              <input class="w-full bg-surface-container-highest border-none rounded-lg p-4 font-label-lg focus:ring-2 focus:ring-secondary transition-all" type="text" value="ALEXANDER VANCE"/>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-sm uppercase text-on-surface-variant tracking-wider">Expiry Date</label>
+              <input class="w-full bg-surface-container-highest border-none rounded-lg p-4 font-label-lg focus:ring-2 focus:ring-secondary transition-all" placeholder="MM/YY" type="text"/>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT: Order Summary -->
+    <div class="lg:col-span-4">
+      <aside class="sticky top-32 glass-panel rounded-2xl p-8 border border-white/10 shadow-2xl">
+        <h3 class="font-headline-lg text-headline-lg mb-6 border-b border-white/10 pb-4">Order Summary</h3>
+
+        <!-- Cart items container -->
+        <div id="cart-items-list" class="space-y-5 mb-6 min-h-[80px]">
+          <!-- Empty state -->
+          <div id="empty-cart-state" class="flex flex-col items-center py-8 gap-3 text-center">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/30">shopping_bag</span>
+            <p class="font-label-lg text-on-surface-variant">Your cart is empty</p>
+            <button onclick="window.parent.postMessage({type:'NAVIGATE',data:'/menu-dashboard'},'*')" class="mt-2 text-primary font-label-lg underline hover:text-secondary transition-colors">
+              Browse Menu →
+            </button>
+          </div>
+        </div>
+
+        <!-- Totals (hidden until items exist) -->
+        <div id="cart-summary" class="hidden space-y-3 border-t border-white/10 pt-5">
+          <div class="flex justify-between font-body-md">
+            <span class="text-on-surface-variant">Subtotal</span>
+            <span id="subtotal-val" class="text-on-surface">$0.00</span>
+          </div>
+          <div class="flex justify-between font-body-md">
+            <span class="text-on-surface-variant">Delivery Fee</span>
+            <span>$5.00</span>
+          </div>
+          <div class="flex justify-between font-body-md">
+            <span class="text-on-surface-variant">Luxury Packaging</span>
+            <span class="text-secondary">$3.00</span>
+          </div>
+          <div class="flex justify-between pt-4 border-t border-white/10">
+            <span class="font-headline-md text-headline-md">Total</span>
+            <span id="total-val" class="font-headline-md text-headline-md text-primary">$8.00</span>
+          </div>
+        </div>
+
+        <!-- Confirm button -->
+        <button id="confirm-btn" onclick="handleConfirm()" class="hidden w-full mt-8 py-5 px-6 bg-gradient-to-r from-primary-container to-secondary-container rounded-xl font-display-lg text-label-lg text-on-primary-container uppercase tracking-widest glow-button">
+          Confirm Order
+        </button>
+        <p class="text-[10px] text-center mt-4 text-on-surface-variant/50 uppercase tracking-tighter">Secure encrypted transaction by Lumina Pay</p>
+      </aside>
+    </div>
+
+  </div>
 </main>
+
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant mt-24">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter-md px-margin-desktop py-16 max-w-container-max mx-auto">
-<div class="col-span-2 md:col-span-1">
-<div class="font-display-lg text-headline-lg text-primary-container mb-6">Lumina Bites</div>
-<p class="text-on-surface-variant font-body-md max-w-xs">Elevating the digital ritual of modern gastronomy.</p>
-</div>
-<div>
-<h4 class="font-label-lg text-primary mb-6">Discovery</h4>
-<ul class="space-y-3">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Menu</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Our Story</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Catering</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-lg text-primary mb-6">Company</h4>
-<ul class="space-y-3">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">About Us</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Careers</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Press</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-lg text-primary mb-6">Legal</h4>
-<ul class="space-y-3">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms of Service</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Accessibility</a></li>
-</ul>
-</div>
-</div>
-<div class="px-margin-desktop py-8 border-t border-white/5 text-center">
-<p class="font-body-md text-on-surface-variant text-sm">© 2024 Lumina Bites. All Rights Reserved.</p>
-</div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter-md px-margin-desktop py-16 max-w-container-max mx-auto">
+    <div class="col-span-2 md:col-span-1">
+      <div class="font-display-lg text-headline-lg text-primary-container mb-6">Lumina Bites</div>
+      <p class="text-on-surface-variant font-body-md max-w-xs">Elevating the digital ritual of modern gastronomy.</p>
+    </div>
+    <div>
+      <h4 class="font-label-lg text-primary mb-6">Discovery</h4>
+      <ul class="space-y-3">
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Menu</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Our Story</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Catering</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-lg text-primary mb-6">Company</h4>
+      <ul class="space-y-3">
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-lg text-primary mb-6">Legal</h4>
+      <ul class="space-y-3">
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="px-margin-desktop py-8 border-t border-white/5 text-center">
+    <p class="font-body-md text-on-surface-variant text-sm">© 2024 Lumina Bites. All Rights Reserved.</p>
+  </div>
 </footer>
-</body></html>
+
+<script>
+  const DELIVERY_FEE = 5.00;
+  const PACKAGING_FEE = 3.00;
+  let cartItems = [];
+
+  function renderCart(items) {
+    cartItems = Array.isArray(items) ? items : [];
+    const list = document.getElementById('cart-items-list');
+    const emptyState = document.getElementById('empty-cart-state');
+    const summary = document.getElementById('cart-summary');
+    const confirmBtn = document.getElementById('confirm-btn');
+
+    // Remove existing item rows
+    list.querySelectorAll('.cart-item').forEach(el => el.remove());
+
+    if (cartItems.length === 0) {
+      emptyState.style.display = 'flex';
+      summary.classList.add('hidden');
+      confirmBtn.classList.add('hidden');
+      return;
+    }
+
+    emptyState.style.display = 'none';
+    summary.classList.remove('hidden');
+    confirmBtn.classList.remove('hidden');
+
+    let subtotal = 0;
+    cartItems.forEach(item => {
+      subtotal += item.price * item.quantity;
+      const div = document.createElement('div');
+      div.className = 'cart-item flex gap-4 item-fade-in';
+      div.innerHTML = `
+        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high border border-white/5">
+          <img class="w-full h-full object-cover" src="${item.image || ''}" alt="${item.name}"
+            onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center\\'><span class=\\'material-symbols-outlined text-on-surface-variant\\''>restaurant</span></div>'"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start gap-2">
+            <p class="font-label-lg text-on-surface truncate">${item.name}</p>
+            <p class="font-label-lg text-primary whitespace-nowrap">$${(item.price * item.quantity).toFixed(2)}</p>
+          </div>
+          <div class="flex items-center justify-between mt-1">
+            <p class="text-xs text-on-surface-variant">Qty: ${item.quantity} &bull; $${item.price.toFixed(2)} ea</p>
+            <button onclick="removeItem('${item.id}')" class="text-xs text-on-surface-variant/50 hover:text-tertiary-container transition-colors underline">Remove</button>
+          </div>
+        </div>
+      `;
+      list.appendChild(div);
+    });
+
+    const total = subtotal + DELIVERY_FEE + PACKAGING_FEE;
+    document.getElementById('subtotal-val').textContent = '$' + subtotal.toFixed(2);
+    document.getElementById('total-val').textContent = '$' + total.toFixed(2);
+  }
+
+  function removeItem(id) {
+    window.parent.postMessage({ type: 'REMOVE_FROM_CART', data: { productId: id } }, '*');
+  }
+
+  function handleConfirm() {
+    if (cartItems.length === 0) return;
+    window.parent.postMessage({ type: 'NAVIGATE', data: '/order-confirmation' }, '*');
+  }
+
+  // Listen for cart updates from parent
+  window.addEventListener('message', (event) => {
+    const { type, data } = event.data || {};
+    if (type === 'CART_UPDATE') {
+      renderCart(data.cart);
+    }
+  });
+
+  // Request cart from parent on load
+  window.parent.postMessage({ type: 'REQUEST_CART' }, '*');
+</script>
+</body>
+</html>

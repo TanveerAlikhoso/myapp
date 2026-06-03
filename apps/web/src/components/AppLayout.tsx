@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ShoppingBag, Menu, X, Search, User, ChevronRight } from 'lucide-react';
+import { useCart } from '@lumina/core';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -11,29 +12,76 @@ const navLinks = [
   { name: 'Home',       href: '/' },
   { name: 'Menu',       href: '/menu-dashboard' },
   { name: 'Experience', href: '/experience' },
-  { name: 'Catering',   href: '/catering-dynamic' },
-  { name: 'Locate',     href: '/locate-us' },
+  { name: 'Catering',   href: '/catering' },
+  { name: 'Locate',     href: '/locations' },
 ];
 
 const mobileLinks = [
   { name: 'Home',             href: '/' },
   { name: 'Menu',             href: '/menu-dashboard' },
   { name: 'Experience',       href: '/experience' },
-  { name: 'Catering',         href: '/catering-dynamic' },
-  { name: 'Locate Us',        href: '/locate-us' },
-  { name: 'Luxury Offers',    href: '/luxury-offers' },
-  { name: 'My Profile',       href: '/my-profile' },
+  { name: 'Catering',         href: '/catering' },
+  { name: 'Locate Us',        href: '/locations' },
+  { name: 'Luxury Offers',    href: '/offers' },
+  { name: 'My Profile',       href: '/profile' },
   { name: 'Ingredients',      href: '/ingredients' },
-  { name: 'Order Tracking',   href: '/order-tracking' },
+  { name: 'Order Tracking',   href: '/tracking' },
 ];
 
 export default function AppLayout({ children, title }: AppLayoutProps) {
   const router = useRouter();
-  const [cartCount] = useState(0);
+  const { totalItems: cartCount, addToCart, removeFromCart, cart } = useCart();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchVal, setSearchVal] = useState('');
+
+  // Handle postMessage messages from iframe pages (add to cart, navigation)
+  useEffect(() => {
+    const handleIframeMessage = (event: MessageEvent) => {
+      const { type, data } = event.data || {};
+      if (type === 'ADD_TO_CART') {
+        const { productId, name, price, image } = data;
+        addToCart({
+          id: productId,
+          productId,
+          name,
+          basePrice: price,
+          price,
+          image,
+        });
+      } else if (type === 'REMOVE_FROM_CART') {
+        const { productId } = data;
+        removeFromCart(productId);
+      } else if (type === 'NAVIGATE') {
+        navigate(data);
+      } else if (type === 'VIEW_CART') {
+        navigate('/checkout');
+      } else if (type === 'REQUEST_CART') {
+        // Checkout iframe is asking for current cart — reply immediately
+        const iframe = document.querySelector('iframe') as HTMLIFrameElement | null;
+        iframe?.contentWindow?.postMessage(
+          { type: 'CART_UPDATE', data: { cart } },
+          '*'
+        );
+      }
+    };
+    window.addEventListener('message', handleIframeMessage);
+    return () => window.removeEventListener('message', handleIframeMessage);
+  }, [addToCart, removeFromCart, cart]);
+
+
+  // Broadcast cart to any iframe whenever cart changes (menu FAB badge + checkout items)
+  useEffect(() => {
+    const iframe = document.querySelector('iframe') as HTMLIFrameElement | null;
+    if (!iframe) return;
+    const send = () => {
+      iframe.contentWindow?.postMessage({ type: 'CART_UPDATE', data: { cart } }, '*');
+    };
+    send();
+    iframe.addEventListener('load', send);
+    return () => iframe.removeEventListener('load', send);
+  }, [cart, router.pathname]);
 
   // Lock scroll when drawer open
   useEffect(() => {
