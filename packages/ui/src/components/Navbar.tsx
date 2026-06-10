@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }}
       >
         {/* ─── Left: Logo ─── */}
-        <div style={{ display: 'flex', alignItems: 'center', maxHeight: '30px', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'center', maxHeight: '30px', overflow: 'hidden' }}>
           <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>
             <span style={{ fontFamily: 'Sora, sans-serif', fontWeight: 900, fontSize: '20px', color: '#ffb68b', letterSpacing: '-0.02em', textTransform: 'uppercase' as const, lineHeight: 1 }}>
               LUMINA BITES
@@ -121,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* ─── Center: Nav Links (≥ 768px) ─── */}
-        <div className="hidden md:flex" style={{ flexDirection: 'row', alignItems: 'center', gap: '32px' }}>
+        <div className="hidden md:flex" style={{ flex: 'none', justifyContent: 'center', alignItems: 'center', gap: '32px' }}>
           {navLinks.map((link) => {
             const isCurrent = currentPath === link.href;
             return (
@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* ─── Right: Search + Icons + Order Button ─── */}
-        <div className="hidden md:flex" style={{ flexDirection: 'row', alignItems: 'center', gap: '24px' }}>
+        <div className="hidden md:flex" style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', alignItems: 'center', gap: '24px' }}>
           
           {/* Search Bar */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
