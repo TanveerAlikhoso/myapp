@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Menu', href: '/menu-dashboard' },
     { name: 'Experience', href: '/experience' },
     { name: 'Catering', href: '/catering-dynamic' },
-    { name: 'Locate', href: '/locate-us' },
+    { name: 'Locations', href: '/locate-us' },
     { name: 'Profile', href: '/my-profile' },
   ];
 

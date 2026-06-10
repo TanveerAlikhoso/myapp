@@ -13,7 +13,8 @@ const navLinks = [
   { name: 'Menu',       href: '/menu-dashboard' },
   { name: 'Experience', href: '/experience' },
   { name: 'Catering',   href: '/catering' },
-  { name: 'Locate',     href: '/locations' },
+  { name: 'Locations',  href: '/locations' },
+  { name: 'Profile',    href: '/profile' },
 ];
 
 const mobileLinks = [
@@ -21,9 +22,9 @@ const mobileLinks = [
   { name: 'Menu',             href: '/menu-dashboard' },
   { name: 'Experience',       href: '/experience' },
   { name: 'Catering',         href: '/catering' },
-  { name: 'Locate Us',        href: '/locations' },
+  { name: 'Locations',        href: '/locations' },
   { name: 'Luxury Offers',    href: '/offers' },
-  { name: 'My Profile',       href: '/profile' },
+  { name: 'Profile',          href: '/profile' },
   { name: 'Ingredients',      href: '/ingredients' },
   { name: 'Order Tracking',   href: '/tracking' },
 ];
@@ -137,45 +138,45 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
         }}
       >
         {/* LEFT: Logo */}
-        <button
-          onClick={() => navigate('/')}
-          style={{
-            background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-            display: 'flex', alignItems: 'center', gap: 8,
-            flexShrink: 0,
-          }}
-          aria-label="Go Home"
-        >
-          {/* Flame icon */}
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C12 2 7 8 7 13a5 5 0 0 0 10 0c0-2.5-2-5-2-5s-1 3-3 3c0-3 3-6 3-6z" fill="#f97316" opacity="0.9"/>
-            <path d="M12 17.5A2.5 2.5 0 0 1 9.5 15c0-1.5 1.5-3 1.5-3s.5 1.5 1.5 1.5c0-1.5 1.5-3 1.5-3S14.5 12 14.5 15A2.5 2.5 0 0 1 12 17.5z" fill="#ffb68b"/>
-          </svg>
-          <span
+        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+          <button
+            onClick={() => navigate('/')}
             style={{
-              fontFamily: 'Sora, sans-serif',
-              fontWeight: 900,
-              fontSize: '18px',
-              color: '#ffb68b',
-              letterSpacing: '-0.02em',
-              textTransform: 'uppercase',
-              whiteSpace: 'nowrap',
-              lineHeight: 1,
+              background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+              display: 'flex', alignItems: 'center', gap: 8,
             }}
+            aria-label="Go Home"
           >
-            Lumina Bites
-          </span>
-        </button>
+            {/* Flame icon */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C12 2 7 8 7 13a5 5 0 0 0 10 0c0-2.5-2-5-2-5s-1 3-3 3c0-3 3-6 3-6z" fill="#f97316" opacity="0.9"/>
+              <path d="M12 17.5A2.5 2.5 0 0 1 9.5 15c0-1.5 1.5-3 1.5-3s.5 1.5 1.5 1.5c0-1.5 1.5-3 1.5-3S14.5 12 14.5 15A2.5 2.5 0 0 1 12 17.5z" fill="#ffb68b"/>
+            </svg>
+            <span
+              style={{
+                fontFamily: 'Sora, sans-serif',
+                fontWeight: 900,
+                fontSize: '18px',
+                color: '#ffb68b',
+                letterSpacing: '-0.02em',
+                textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
+                lineHeight: 1,
+              }}
+            >
+              Lumina Bites
+            </span>
+          </button>
+        </div>
 
         {/* CENTER: Nav Links — desktop only */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
+            flex: 'none',
             gap: '36px',
-            position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
           }}
           className="desktop-nav"
         >
@@ -183,27 +184,8 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
             <button
               key={link.name}
               onClick={() => navigate(link.href)}
-              style={{
-                background: 'none',
-                border: 'none',
-                borderBottom: isCurrent(link.href) ? '2px solid #f97316' : '2px solid transparent',
-                cursor: 'pointer',
-                padding: '4px 0',
-                fontFamily: 'Montserrat, sans-serif',
-                fontSize: '13px',
-                fontWeight: isCurrent(link.href) ? 700 : 600,
-                color: isCurrent(link.href) ? '#ffb68b' : 'rgba(255,182,139,0.65)',
-                letterSpacing: '0.04em',
-                transition: 'color 0.2s, border-color 0.2s',
-                whiteSpace: 'nowrap',
-                lineHeight: 1,
-              }}
-              onMouseEnter={e => {
-                if (!isCurrent(link.href)) (e.currentTarget as HTMLElement).style.color = '#ffb68b';
-              }}
-              onMouseLeave={e => {
-                if (!isCurrent(link.href)) (e.currentTarget as HTMLElement).style.color = 'rgba(255,182,139,0.65)';
-              }}
+              data-text={link.name}
+              className={`nav-link ${isCurrent(link.href) ? 'active' : ''} desktop-nav`}
             >
               {link.name}
             </button>
@@ -212,7 +194,7 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
 
         {/* RIGHT: Search + Icons + CTA */}
         <div
-          style={{ display: 'flex', alignItems: 'center', gap: '20px', flexShrink: 0 }}
+          style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', alignItems: 'center', gap: '20px' }}
         >
           {/* Search — desktop */}
           <div className="desktop-nav" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -496,6 +478,40 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
 
       {/* ── Global Styles ── */}
       <style>{`
+        .nav-link {
+          background: none;
+          border: none;
+          border-bottom: 2px solid transparent;
+          cursor: pointer;
+          padding: 4px 0;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          color: rgba(255,182,139,0.65);
+          letter-spacing: 0.04em;
+          transition: color 0.2s, border-color 0.2s;
+          white-space: nowrap;
+          line-height: 1;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .nav-link:hover {
+          color: #ffb68b;
+        }
+        .nav-link.active {
+          font-weight: 700;
+          color: #ffb68b;
+          border-bottom: 2px solid #f97316;
+        }
+        .nav-link::after {
+          display: block;
+          content: attr(data-text);
+          font-weight: 700;
+          height: 0;
+          overflow: hidden;
+          visibility: hidden;
+        }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
