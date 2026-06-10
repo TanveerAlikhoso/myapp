@@ -78,7 +78,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Experience', href: '/experience' },
     { name: 'Catering', href: '/catering-dynamic' },
     { name: 'Locations', href: '/locate-us' },
-    { name: 'Profile', href: '/my-profile' },
   ];
 
   // Mobile drawer links

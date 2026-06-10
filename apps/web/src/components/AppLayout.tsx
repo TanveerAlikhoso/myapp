@@ -14,7 +14,6 @@ const navLinks = [
   { name: 'Experience', href: '/experience' },
   { name: 'Catering',   href: '/catering' },
   { name: 'Locations',  href: '/locations' },
-  { name: 'Profile',    href: '/profile' },
 ];
 
 const mobileLinks = [
@@ -500,17 +499,8 @@ export default function AppLayout({ children, title }: AppLayoutProps) {
           color: #ffb68b;
         }
         .nav-link.active {
-          font-weight: 700;
           color: #ffb68b;
           border-bottom: 2px solid #f97316;
-        }
-        .nav-link::after {
-          display: block;
-          content: attr(data-text);
-          font-weight: 700;
-          height: 0;
-          overflow: hidden;
-          visibility: hidden;
         }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
